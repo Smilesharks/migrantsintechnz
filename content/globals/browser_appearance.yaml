@@ -1,0 +1,11 @@
+title: 'Browser appearance'
+data:
+  disable_telephone_detection: false
+  disable_email_detection: false
+  disable_address_detection: false
+  display_standalone: false
+  use_theme_color: true
+  use_theme_color_dark_mode: true
+  theme_color: '#E03E1A'
+  theme_color_dark_mode: '#E03E1A'
+  use_favicons: false
