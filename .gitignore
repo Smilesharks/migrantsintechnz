@@ -21,3 +21,5 @@ yarn-error.log
 /public/build/
 /users
 /storage/forms
+.DS_Store
+**/.DS_Store
