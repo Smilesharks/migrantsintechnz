@@ -1,0 +1,32 @@
+title: Hero
+fields:
+  -
+    handle: title
+    field:
+      type: text
+      display: Title
+  -
+    handle: subheader
+    field:
+      remove_empty_nodes: false
+      type: bard
+      display: Subheader
+  -
+    handle: photo
+    field:
+      type: replicator
+      display: Photo
+      sets:
+        new_set_group:
+          display: 'New Set Group'
+          sets:
+            pic:
+              display: Pic
+              icon: media-image-picture-orientation
+              fields:
+                -
+                  handle: image
+                  field:
+                    container: images
+                    type: assets
+                    display: Image

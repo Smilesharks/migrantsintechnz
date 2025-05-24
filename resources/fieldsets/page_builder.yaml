@@ -11,6 +11,30 @@ fields:
       display: 'Page builder'
       button_label: 'Add block'
       sets:
+        full_width_image:
+          display: 'Full width image'
+          instructions: null
+          fields:
+            -
+              import: full_width_image
+        gallery:
+          display: Gallery
+          instructions: null
+          fields:
+            -
+              import: gallery
+        hero_home:
+          display: hero-home
+          instructions: null
+          fields:
+            -
+              import: hero_home
+        horizontal_title_and_description:
+          display: 'Horizontal Title and description'
+          instructions: null
+          fields:
+            -
+              import: horizontal_title_and_description
         interactive:
           display: Interactive
           instructions: 'Interactive blocks.'
@@ -30,6 +54,12 @@ fields:
               fields:
                 -
                   import: cards
+        past_events:
+          display: 'Past Events'
+          instructions: null
+          fields:
+            -
+              import: past_events
         text:
           display: Text
           instructions: 'Text based blocks.'
@@ -42,3 +72,15 @@ fields:
               fields:
                 -
                   import: article
+        the_directory:
+          display: 'The Directory'
+          instructions: null
+          fields:
+            -
+              import: the_directory
+        the_event:
+          display: 'The Event'
+          instructions: null
+          fields:
+            -
+              import: the_event

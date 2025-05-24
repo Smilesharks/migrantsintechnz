@@ -1,0 +1,44 @@
+title: 'The Event'
+fields:
+  -
+    handle: title
+    field:
+      type: text
+      display: Title
+  -
+    handle: description
+    field:
+      remove_empty_nodes: false
+      type: bard
+      display: Description
+  -
+    handle: steps
+    field:
+      type: replicator
+      display: Steps
+      sets:
+        new_set_group:
+          display: 'New Set Group'
+          sets:
+            step:
+              display: Step
+              fields:
+                -
+                  handle: title
+                  field:
+                    type: text
+                    display: Title
+                -
+                  handle: description
+                  field:
+                    remove_empty_nodes: false
+                    type: bard
+                    display: Description
+                -
+                  handle: image
+                  field:
+                    container: images
+                    type: assets
+                    display: Image
+  -
+    import: buttons

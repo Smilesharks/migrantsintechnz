@@ -1,22 +1,23 @@
 @import "tailwindcss";
 @import "./peak.css";
 @import "./typography.css";
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-    --color-primary: oklch(53.24% 0.301 290.86);
+    --color-primary: oklch(0.6019 0.2039 33.52);
 
-    --color-neutral: var(--color-slate-800);
-    --color-neutral-50: var(--color-slate-50);
-    --color-neutral-100: var(--color-slate-100);
-    --color-neutral-200: var(--color-slate-200);
-    --color-neutral-300: var(--color-slate-300);
-    --color-neutral-400: var(--color-slate-400);
-    --color-neutral-500: var(--color-slate-500);
-    --color-neutral-600: var(--color-slate-600);
-    --color-neutral-700: var(--color-slate-700);
-    --color-neutral-800: var(--color-slate-800);
-    --color-neutral-900: var(--color-slate-900);
-    --color-neutral-950: var(--color-slate-950);
+    --color-neutral: var(--color-zinc-800);
+    --color-neutral-50: var(--color-zinc-50);
+    --color-neutral-100: var(--color-zinc-100);
+    --color-neutral-200: var(--color-zinc-200);
+    --color-neutral-300: var(--color-zinc-300);
+    --color-neutral-400: var(--color-zinc-400);
+    --color-neutral-500: var(--color-zinc-500);
+    --color-neutral-600: var(--color-zinc-600);
+    --color-neutral-700: var(--color-zinc-700);
+    --color-neutral-800: var(--color-zinc-800);
+    --color-neutral-900: var(--color-zinc-900);
+    --color-neutral-950: var(--color-zinc-950);
 
     /* --font-sans: Gaultier, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; */
     /* --font-serif: Lavigne, ui-serif, Georgia, Cambria, "Times New Roman", Times, serif; */
@@ -42,4 +43,7 @@
         /* font-family: var(--font-serif); */
         /* font-family: var(--font-mono); */
     }
+}
+.dev * {
+    @apply border border-red-500/50 bg-red-500/5;
 }

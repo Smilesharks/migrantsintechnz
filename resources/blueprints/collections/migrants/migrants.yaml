@@ -1,0 +1,74 @@
+title: Migrants
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              localizable: true
+              listable: true
+              display: Title
+              validate:
+                - required
+          -
+            handle: image
+            field:
+              container: images
+              type: assets
+              display: Image
+              width: 33
+          -
+            handle: url
+            field:
+              type: link
+              display: url
+              width: 33
+          -
+            handle: email
+            field:
+              input_type: email
+              type: text
+              display: Email
+              width: 33
+          -
+            handle: position
+            field:
+              type: text
+              display: Position
+              width: 33
+          -
+            handle: tags
+            field:
+              type: select
+              display: Tags
+              width: 33
+          -
+            handle: location
+            field:
+              type: select
+              display: Location
+              width: 33
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: meta
+            field:
+              type: section
+              instructions: "This entry's meta data."
+              display: Meta
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate:
+                - required
+              display: Slug

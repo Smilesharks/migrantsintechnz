@@ -1,0 +1,38 @@
+{{#
+    @name The Event
+    @desc The The Event page builder block.
+    @set page.page_builder.the_event
+#}}
+
+<!-- /page_builder/_the_event.antlers.html -->
+<section>
+	<div class="mx-auto max-w-6xl">
+		<!-- Header Section -->
+		{{ partial:components/section_title :title='title' url="true" :description="description" }}
+	</div>
+	<div class="mx-auto max-w-6xl my-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+		<!-- Step 1 -->
+		{{ steps }}
+			<div class="flex flex-col justify-between">
+				<div>
+					<div class="mb-6">
+						<span
+							class="bg-orange-950 text-orange-500 font-bold rounded px-3 py-1.5 inline-block">{{ count }}</span>
+					</div>
+					<h2 class="text-2xl font-bold text-white mb-2">{{ title }}</h2>
+					<p class="dark:text-neutral-400 text-neutral-600 mb-3">{{ description | strip_tags:p }}</p>
+				</div>
+
+				<!-- Test Card -->
+				<div class="bg-neutral-800 rounded-lg mt-6 overflow-hidden">
+					{{ image }}
+						{{ partial src="statamic-peak-tools::components/picture" :image="url" class="hidden lg:block " sizes="(min-width: 1024px) 400px, 200px" lazy="true" }}
+						{{ partial src="statamic-peak-tools::components/picture" :image="url" class="block lg:hidden" sizes="200px" lazy="true" }}
+					{{ /image }}
+				</div>
+			</div>
+		{{ /steps }}
+
+	</div>
+</section>
+<!-- End: /page_builder/_the_event.antlers.html -->

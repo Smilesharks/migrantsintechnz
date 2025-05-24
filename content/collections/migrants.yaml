@@ -1,0 +1,11 @@
+title: Migrants
+route: "no"
+layout: layout
+template: migrants/show
+revisions: false
+date: false
+sort_dir: asc
+date_behavior:
+  past: public
+  future: private
+mount: 849e2c98-92b2-40cf-881a-ef509cf57806

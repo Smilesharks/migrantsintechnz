@@ -3,7 +3,7 @@ id: home
 blueprint: page
 title: Home
 updated_by: b702c7e5-e21a-41a0-a013-e48f0ff5b708
-updated_at: 1747625869
+updated_at: 1748053025
 seo_noindex: false
 seo_nofollow: false
 seo_canonical_type: entry
@@ -11,97 +11,142 @@ sitemap_change_frequency: weekly
 sitemap_priority: 0.5
 page_builder:
   -
-    id: T5ZZwBfn
-    article:
-      -
-        type: heading
-        attrs:
-          level: 1
-        content:
-          -
-            type: text
-            text: 'Start out on top'
+    id: maukptr4
+    type: hero_home
+    enabled: true
+    title: 'Migrants <br class="max-md:hidden"> InTech'
+    subheader:
       -
         type: paragraph
         content:
           -
             type: text
-            text: 'Peak is your personal bespoke development sherpa. Start every project with this kit full of development goodies. '
+            text: 'Empowering Migrants to Thrive'
       -
         type: paragraph
         content:
           -
             type: text
-            text: "But beware, this kit ain't here to be pretty. There are some examples of what Peak can do, but the rest is up to you. "
+            text: 'in Auckland’s Tech Industry'
+    photo:
       -
-        type: paragraph
-        content:
-          -
-            type: text
-            text: 'Get climbing!'
-    type: article
-    enabled: false
+        id: mb07yb98
+        image:
+          - 023a9843.jpg
+        type: pic
+        enabled: true
+      -
+        id: mb07ylui
+        image:
+          - 023a9843.jpg
+        type: pic
+        enabled: true
+      -
+        id: mb07yki9
+        image:
+          - 023a9843.jpg
+        type: pic
+        enabled: true
+      -
+        id: mb07yj9s
+        image:
+          - 023a9843.jpg
+        type: pic
+        enabled: true
   -
-    id: eFlcYHyl
-    title: Features
-    type: cards
-    enabled: false
-    cards:
+    id: mb0aw0jt
+    type: full_width_image
+    enabled: true
+    big_image:
+      - migrant-tech-group.png
+  -
+    id: mb08fuqw
+    type: the_event
+    enabled: true
+    title: 'The Event'
+    description:
       -
-        id: lly5m22j
-        title: 'Check out a form'
-        text: "Peak renders forms and mail templates dynamically so you can add as many forms as you'd like, just by creating them in the CP. Peak ships with a default basic contact form you can edit."
-        label: 'Send a form'
-        link_type: entry
-        target_blank: false
-        entry: 5c526dbf-9dd7-4c52-98d8-54e00ebddfb6
-        button_type: inline
-        type: card
-        enabled: true
-        button:
+        type: paragraph
+        content:
           -
-            id: llz6sh4t
-            label: 'Send a form'
-            link_type: entry
-            target_blank: false
-            entry: 5c526dbf-9dd7-4c52-98d8-54e00ebddfb6
-            button_type: inline
+            type: text
+            text: 'At Migrants in Tech NZ, we believe in the power of connection and continuous learning. Here’s how we support our members:'
+    buttons:
       -
-        id: lly5mxh7
-        title: 'Long form content'
-        text: 'For long form content you can use the Article content block. This is a Bard fieldtypeopen in new window with multiple sets of fields that are regularly used in longer articles.'
-        label: 'Read an article'
-        link_type: entry
-        target_blank: false
-        entry: 20f6a148-63b8-47a8-9b0e-d57095d78c21
-        button_type: inline
-        type: card
+        id: mb09f8we
+        text: 'Get Tickets'
+        button_type: button
+        url: '#'
+        type: button
         enabled: true
-        button:
-          -
-            id: llz6svox
-            label: 'Read an article'
-            link_type: entry
-            target_blank: false
-            entry: 20f6a148-63b8-47a8-9b0e-d57095d78c21
-            button_type: inline
-      -
-        id: lly5nvk4
-        title: 'Way more features'
-        text: 'Professional SEO, social image generation, responsive assets, appearance globals, favicons generation, search templates, dark mode support with toggle, pagination template, search and additional bottles of oxygen.'
-        label: 'Climb the docs'
+        label: 'Get Tickets'
         link_type: url
         target_blank: true
-        url: 'https://peak.1902.studio'
+      -
+        id: mb09dyi1
+        text: 'Upcoming event'
         button_type: inline
-        type: card
+        type: button
         enabled: true
-        button:
+        label: 'View more'
+        link_type: entry
+        target_blank: false
+        entry: c60ed89d-60ea-4f5f-aa98-cd930a1a6c93
+    steps:
+      -
+        id: mb09lvy6
+        title: 'Physical Networking Events'
+        description:
           -
-            id: llz6t5ao
-            label: 'Read the docs'
-            link_type: url
-            target_blank: true
-            url: 'https://peak.1902.studio'
-            button_type: inline
+            type: paragraph
+            content:
+              -
+                type: text
+                text: 'We host regular meet-ups where you can connect with fellow migrants and local tech professionals. Our events feature guest speakers who share valuable insights on relevant topics in the tech industry. There is also free pizza and drinks 🎉'
+        image:
+          - 023a9843.jpg
+        type: step
+        enabled: true
+      -
+        id: mb09o29z
+        title: 'Guest Speaker Sessions'
+        description:
+          -
+            type: paragraph
+            content:
+              -
+                type: text
+                text: "Gain knowledge from industry leaders who discuss everything from career development to the latest tech trends. These sessions are designed to provide practical advice and inspiration to help you thrive in Auckland's tech ecosystem."
+        image:
+          - 023a9843.jpg
+        type: step
+        enabled: true
+      -
+        id: mb09oge7
+        title: 'Support Initiatives'
+        description:
+          -
+            type: paragraph
+            content:
+              -
+                type: text
+                text: 'New developments are coming! We’re planning to offer further learning opportunities, including workshops and mentoring sessions, to help you grow both personally and professionally.'
+        image:
+          - 023a9843.jpg
+        type: step
+        enabled: true
+    big_image:
+      - migrant-tech-group.png
+  -
+    id: mb08hw0r
+    type: the_directory
+    enabled: true
+  -
+    id: mb08j20k
+    type: gallery
+    enabled: true
+  -
+    id: mb08kkji
+    type: past_events
+    enabled: true
 ---

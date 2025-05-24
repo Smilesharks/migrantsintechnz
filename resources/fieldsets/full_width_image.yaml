@@ -1,0 +1,8 @@
+title: 'Full width image'
+fields:
+  -
+    handle: big_image
+    field:
+      container: images
+      type: assets
+      display: 'Big Image'

@@ -1,0 +1,93 @@
+title: Events
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              localizable: true
+              listable: true
+              display: Title
+              validate:
+                - required
+          -
+            handle: location
+            field:
+              options:
+                -
+                  key: 'GridAKL/John Lysaght Auckland'
+                  value: 'GridAKL/John Lysaght Auckland'
+              type: select
+              display: Location
+              width: 50
+          -
+            handle: url
+            field:
+              type: link
+              display: Url
+              width: 25
+          -
+            handle: ticket_url
+            field:
+              type: link
+              display: 'Ticket Url'
+              width: 25
+          -
+            handle: date
+            field:
+              type: date
+              display: Date
+              width: 50
+          -
+            handle: type
+            field:
+              options:
+                -
+                  key: Meet-Up
+                  value: Meet-Up
+              default: meetup
+              type: select
+              display: Type
+              width: 50
+          -
+            handle: time_start
+            field:
+              type: time
+              display: 'Time Start'
+              width: 50
+          -
+            handle: time_end
+            field:
+              type: time
+              display: 'Time End'
+              width: 50
+          -
+            handle: description
+            field:
+              remove_empty_nodes: false
+              type: bard
+              display: Description
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: meta
+            field:
+              type: section
+              instructions: "This entry's meta data."
+              display: Meta
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate:
+                - required
+              display: Slug

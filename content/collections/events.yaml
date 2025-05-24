@@ -1,0 +1,11 @@
+title: Events
+route: '/{mount}/{slug}'
+layout: layout
+template: events/show
+revisions: false
+date: false
+sort_dir: asc
+date_behavior:
+  past: public
+  future: private
+mount: 06ebabcc-777f-4d4a-bdac-dbf86590bdf7

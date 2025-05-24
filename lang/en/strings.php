@@ -68,4 +68,14 @@ return [
     'next' => 'next',
     'of' => 'of',
     'previous' => 'previous',
+
+    // Dark mode
+    'theme_toggle_dark'                 => 'Use dark theme.',
+    'theme_toggle_light'                => 'Use light theme.',
+    'theme_toggle_system'               => 'Use system preference.',
+    'theme_toggle_dark_short'           => 'Dark',
+    'theme_toggle_light_short'          => 'Light',
+    'theme_toggle_system_short'         => 'System',
+    'theme_toggle_toggle_open'          => 'Open dark mode picker.',
+    'theme_toggle_toggle_close'         => 'Close dark mode picker.',
 ];
