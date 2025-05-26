@@ -5,149 +5,140 @@
 #}}
 
 <!-- /page_builder/_hero_home.antlers.html -->
-{{#
-    <section class="fluid-container grid md:grid-cols-12 gap-8">
-     {{ partial:typography/h3 content="🔧<br>hero-home" class="md:col-span-12 text-center" }}
-    </section>
-#}}
-
-<section
-	class="relative mx-auto isolate min-h-[calc(100vh-130px)] fluid-container max-w-6xl px-5 pb-20 lg:px-20 2xl:px-0">
-	{{# Next Event #}}
-	{{ collection:events }}
-		<a href="{{ url }}" class="flex flex-col gap-y-2 w-fit">
-			<h1 class="w-44 pb-8 tracking-[-0.18px] lg:pb-0">✨ Upcoming Event</h1>
-
-			<div class="relative z-30 flex flex-col gap-y-1">
-				<div class="flex items-center gap-2 tracking-[-0.18px]">
-					<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path fill-rule="evenodd" clip-rule="evenodd"
-							d="M7.5 1.66666V3.33332H12.5V1.66666H14.1667V3.33332H17.5V17.5H2.5V3.33332H5.83333V1.66666H7.5ZM15.8333 9.16666H4.16667V15.8333H15.8333V9.16666Z"
-							fill="currentColor"></path>
-					</svg>
-					{{ type }} - {{ date }}, {{ time_start }} - {{ time_end }} NZDT
-				</div>
-
-
-				<div class="flex gap-2 items-center tracking-[-0.18px]">
-					<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path fill-rule="evenodd" clip-rule="evenodd"
-							d="M10.4935 18.1712L10.495 18.1701L10.4997 18.1667L10.5151 18.1552C10.5281 18.1455 10.5465 18.1316 10.57 18.1137C10.6168 18.078 10.6839 18.0263 10.7683 17.9595C10.9368 17.8257 11.1748 17.6311 11.4592 17.3828C12.0268 16.8872 12.7852 16.1725 13.5458 15.2959C15.0394 13.5745 16.6663 11.0876 16.6663 8.33329C16.6663 4.65139 13.6816 1.66663 9.99967 1.66663C6.31777 1.66663 3.33301 4.65139 3.33301 8.33329C3.33301 11.0876 4.95988 13.5745 6.4536 15.2959C7.21421 16.1725 7.97251 16.8872 8.54017 17.3828C8.82451 17.6311 9.06259 17.8257 9.23109 17.9595C9.31542 18.0263 9.38251 18.078 9.42934 18.1137C9.45284 18.1316 9.47126 18.1455 9.48426 18.1552L9.49967 18.1667L9.50434 18.1701L9.50642 18.1716L9.99967 18.5334L10.4935 18.1712ZM9.99784 10.4166C11.1484 10.4166 12.0812 9.48388 12.0812 8.33329C12.0812 7.1827 11.1484 6.24996 9.99784 6.24996C8.84726 6.24996 7.91451 7.1827 7.91451 8.33329C7.91451 9.48388 8.84726 10.4166 9.99784 10.4166Z"
-							fill="currentColor"></path>
-					</svg>
-					{{ location }}
-				</div>
-			</div>
-		</a>
-	{{ /collection:events }}
-
-	{{# Side Hero #}}
-	<div class="mt-8 sm:absolute sm:left-10 md:bottom-40 md:left-auto lg:right-20 xl:bottom-1/3 xl:mt-0 2xl:right-0">
-		<div class="relative">
-			<div class="grid grid-cols-2 gap-10 lg:gap-20">
-				{{# Primera imagen - posición normal #}}
-				{{ photo limit="1" }}
-					{{ if type == "pic" }}
-						<div class="h-[180px] w-[180px] translate-y-1/2 lg:h-[300px] lg:w-[300px]">
-							{{ image }}
-								{{ partial src="statamic-peak-tools::components/picture" :image="url" class="z-20 hidden object-contain lg:block lg:h-[400px] lg:w-[400px]" sizes="(min-width: 1024px) 400px, 200px" lazy="false" }}
-								{{ partial src="statamic-peak-tools::components/picture" :image="url" class="z-20 block h-[200px] w-[200px] object-contain sm:-translate-x-6 lg:hidden" sizes="200px" lazy="false" }}
-							{{ /image }}
-						</div>
-					{{ /if }}
-				{{ /photo }}
-
-				{{# Segunda imagen - col-start-2 #}}
-				{{ photo offset="1" limit="1" }}
-					{{ if type == "pic" }}
-						<div class="col-start-2 h-[180px] w-[180px] lg:h-[300px] lg:w-[300px]">
-							{{ image }}
-								{{ partial src="statamic-peak-tools::components/picture" :image="url" class="z-20 hidden object-contain lg:block lg:h-[400px] lg:w-[400px]" sizes="(min-width: 1024px) 400px, 200px" lazy="false" }}
-								{{ partial src="statamic-peak-tools::components/picture" :image="url" class="z-20 block h-[200px] w-[200px] -translate-x-1 -translate-y-3 object-contain lg:hidden" sizes="200px" lazy="false" }}
-							{{ /image }}
-						</div>
-					{{ /if }}
-				{{ /photo }}
-
-				{{# Tercera imagen - z-30 col-start-2 #}}
-				{{ photo offset="2" limit="1" }}
-					{{ if type == "pic" }}
-						<div class="z-30 col-start-2 h-[180px] w-[180px] lg:h-[300px] lg:w-[300px]">
-							{{ image }}
-								{{ partial src="statamic-peak-tools::components/picture" :image="url" class="z-30 hidden flex-shrink-0 object-contain lg:block lg:h-[400px] lg:w-[400px]" sizes="(min-width: 1024px) 400px, 200px" lazy="false" }}
-								{{ partial src="statamic-peak-tools::components/picture" :image="url" class="z-30 block h-[200px] w-[200px] flex-shrink-0 -translate-x-1 translate-y-0 object-contain lg:hidden" sizes="200px" lazy="false" }}
-							{{ /image }}
-						</div>
-					{{ /if }}
-				{{ /photo }}
-			</div>
-
-			{{# Cuarta imagen - posición absoluta central #}}
-			{{ photo offset="3" limit="1" }}
-				{{ if type == "pic" }}
-					<div class="absolute top-1/2 left-1/2 -translate-x-40 -translate-y-10">
-						<div class="z-40 h-[180px] w-[180px] lg:h-[300px] lg:w-[300px]">
-							{{ image }}
-								{{ partial src="statamic-peak-tools::components/picture" :image="url" class="z-40 hidden flex-shrink-0 object-contain lg:block lg:h-[400px] lg:w-[400px]" sizes="(min-width: 1024px) 400px, 200px" lazy="false" }}
-								{{ partial src="statamic-peak-tools::components/picture" :image="url" class="z-40 block h-[200px] w-[200px] flex-shrink-0 translate-x-14 translate-y-2 object-contain lg:hidden" sizes="200px" lazy="false" }}
-							{{ /image }}
+<main>
+	<div class="relative isolate">
+		<div class="overflow-hidden">
+			<div class="mx-auto max-w-6xl px-6 lg:px-8 ">
+				<div class="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
+					<div class="w-full max-w-xl lg:shrink-0 z-10 xl:max-w-2xl">
+						{{#
+          <div class="my-12">
+           {{ collection:events }}
+            <a href="{{ url }}" class="flex flex-col gap-y-2 w-fit text-sm dark:text-neutral-400 text-neutral-600">
+             <h1 class="dark:text-orange-300 text-neutral-600 tracking-[-0.18px]">✨ Upcoming
+              Event
+             </h1>
+          
+             <div class="relative z-30 flex flex-col gap-y-1">
+              <h3 class="font-bold tracking-[-0.18px] leading-snug">{{ title }}</h3>
+              <div class="flex items-center gap-2 tracking-[-0.18px]">
+               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                 d="M7.5 1.66666V3.33332H12.5V1.66666H14.1667V3.33332H17.5V17.5H2.5V3.33332H5.83333V1.66666H7.5ZM15.8333 9.16666H4.16667V15.8333H15.8333V9.16666Z"
+                 fill="currentColor"></path>
+               </svg>
+               {{ type }} - {{ date }}, {{ time_start }} - {{ time_end }} NZDT
+              </div>
+          
+          
+              <div class="flex gap-2 items-center tracking-[-0.18px]">
+               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                 d="M10.4935 18.1712L10.495 18.1701L10.4997 18.1667L10.5151 18.1552C10.5281 18.1455 10.5465 18.1316 10.57 18.1137C10.6168 18.078 10.6839 18.0263 10.7683 17.9595C10.9368 17.8257 11.1748 17.6311 11.4592 17.3828C12.0268 16.8872 12.7852 16.1725 13.5458 15.2959C15.0394 13.5745 16.6663 11.0876 16.6663 8.33329C16.6663 4.65139 13.6816 1.66663 9.99967 1.66663C6.31777 1.66663 3.33301 4.65139 3.33301 8.33329C3.33301 11.0876 4.95988 13.5745 6.4536 15.2959C7.21421 16.1725 7.97251 16.8872 8.54017 17.3828C8.82451 17.6311 9.06259 17.8257 9.23109 17.9595C9.31542 18.0263 9.38251 18.078 9.42934 18.1137C9.45284 18.1316 9.47126 18.1455 9.48426 18.1552L9.49967 18.1667L9.50434 18.1701L9.50642 18.1716L9.99967 18.5334L10.4935 18.1712ZM9.99784 10.4166C11.1484 10.4166 12.0812 9.48388 12.0812 8.33329C12.0812 7.1827 11.1484 6.24996 9.99784 6.24996C8.84726 6.24996 7.91451 7.1827 7.91451 8.33329C7.91451 9.48388 8.84726 10.4166 9.99784 10.4166Z"
+                 fill="currentColor"></path>
+               </svg>
+               {{ location }}
+              </div>
+             </div>
+            </a>
+           {{ /collection:events }}
+          </div>
+      #}}
+						<div class="flex flex-col -space-y-12">
+							<h1
+								class="h-auto w-full -mx-4 overflow-visible text-[6rem] leading-[4.5rem] tracking-[-0.5rem] md:text-[16rem] md:leading-[12rem] md:tracking-[-1rem] text-[#E03E1A] font-bold uppercase ">
+								{{ title }}
+							</h1>
+							<span class=" text-2xl tracking-tight leading-6 order-first "> {{ subheader }} </span>
 						</div>
 					</div>
-				{{ /if }}
-			{{ /photo }}
-		</div>
-	</div>
-
-	{{# Hero Text #}}
-	<div class="absolute inset-x-0 bottom-0 flex items-center justify-center">
-		<div class="relative z-30 w-full overflow-visible px-5 lg:px-20 2xl:px-0">
-			<svg xmlns="http://www.w3.org/2000/svg" class="hidden h-auto w-full overflow-visible"
-				style="overflow: visible;" viewBox="0 0 1497 347" fill="none">
-				<g style="z-index: 30;">
-					<path
-						d="M1297.66 4.75676V347.243H1359.51V119.968L1417.08 347.243H1497V4.75676H1435.15V232.032L1377.59 4.75676H1297.66Z"
-						fill="#F2F2F2"></path>
-				</g>
-				<g style="z-index: 30;">
-					<path
-						d="M1160.59 352C1142.19 352 1125.86 348.195 1111.58 340.584C1097.63 332.973 1085.89 321.715 1076.38 306.811C1066.87 291.589 1059.57 273.038 1054.5 251.157C1049.74 228.959 1047.36 203.431 1047.36 174.573C1047.36 136.519 1051.64 104.649 1060.2 78.9622C1068.77 52.9586 1081.45 33.2973 1098.26 19.9784C1115.07 6.65946 1135.69 0 1160.11 0C1185.17 0 1206.1 6.65946 1222.91 19.9784C1239.72 32.9802 1252.4 52.4829 1260.97 78.4865C1269.53 104.49 1273.81 136.677 1273.81 175.049C1273.81 203.906 1271.28 229.434 1266.2 251.632C1261.44 273.514 1254.31 291.906 1244.79 306.811C1235.28 321.715 1223.38 332.973 1209.11 340.584C1195.16 348.195 1178.98 352 1160.59 352ZM1160.11 298.724C1170.58 298.724 1179.14 294.443 1185.8 285.881C1192.46 277.002 1197.38 263.366 1200.55 244.973C1203.72 226.58 1205.31 202.955 1205.31 174.097C1205.31 145.557 1203.72 122.407 1200.55 104.649C1197.38 86.8901 1192.46 73.8883 1185.8 65.6432C1179.14 57.3982 1170.58 53.2757 1160.11 53.2757C1149.96 53.2757 1141.56 57.3982 1134.9 65.6432C1128.24 73.8883 1123.32 86.8901 1120.15 104.649C1117.29 122.09 1115.87 145.24 1115.87 174.097C1115.87 202.955 1117.45 226.58 1120.62 244.973C1123.8 263.366 1128.55 277.002 1134.9 285.881C1141.56 294.443 1149.96 298.724 1160.11 298.724Z"
-						fill="#F2F2F2"></path>
-				</g>
-				<g style="z-index: 40;">
-					<path
-						d="M921.797 352C904.353 352 888.812 348.195 875.174 340.584C861.536 332.973 850.118 321.715 840.921 306.811C831.723 291.906 824.745 273.514 819.988 251.632C815.23 229.751 812.852 204.541 812.852 176C812.852 147.459 815.23 122.249 819.988 100.368C824.745 78.4865 831.723 60.0937 840.921 45.1892C850.435 30.2847 862.012 19.027 875.65 11.4162C889.605 3.8054 905.463 0 923.224 0C944.791 0 963.028 5.54954 977.935 16.6486C993.158 27.4306 1004.73 43.1279 1012.66 63.7405C1020.59 84.3532 1024.56 109.564 1024.56 139.373H957.953C957.953 109.564 954.94 87.8414 948.914 74.2054C942.888 60.2523 933.849 53.2757 921.797 53.2757C912.599 53.2757 904.987 57.2396 898.961 65.1676C892.935 72.7784 888.495 85.4631 885.64 103.222C882.786 120.663 881.359 144.288 881.359 174.097C881.359 203.906 882.786 228.007 885.64 246.4C888.812 264.793 893.411 278.112 899.437 286.357C905.463 294.602 912.916 298.724 921.797 298.724C933.532 298.724 942.412 291.589 948.438 277.319C954.465 263.049 957.478 241.485 957.478 212.627H1024.56C1024.56 241.802 1020.43 266.854 1012.19 287.784C1004.26 308.396 992.524 324.252 976.983 335.351C961.759 346.45 943.364 352 921.797 352Z"
-						fill="#F2F2F2"></path>
-				</g>
-				<g style="z-index: 30;">
-					<path
-						d="M398.286 347.243V4.75676H492.483C512.782 4.75676 529.591 9.03784 542.912 17.6C556.233 26.1622 566.223 37.5784 572.884 51.8486C579.544 65.8018 582.875 81.182 582.875 97.9892C582.875 121.139 576.69 140.324 564.321 155.546C559.048 162.206 552.651 168.046 545.132 173.067C553.181 177.104 559.419 182.204 563.845 188.368C572.725 200.735 577.166 216.591 577.166 235.935V347.243H509.61V238.314C509.61 227.214 507.073 218.969 501.998 213.578C496.924 207.87 489.787 205.016 480.59 205.016H465.842V347.243H398.286ZM482.965 151.742C493.114 151.742 501.043 147.62 506.752 139.375C512.461 131.13 515.315 118.921 515.315 102.748C515.315 86.892 512.461 74.8415 506.752 66.5965C501.043 58.3514 493.114 54.2289 482.965 54.2289H465.838V151.742H482.965Z"
-						fill="#F2F2F2"></path>
-				</g>
-				<g style="z-index: 20;">
-					<path fill-rule="evenodd" clip-rule="evenodd"
-						d="M161.251 347.243L228.331 4.75676H315.867L382.947 347.243H314.916L303.343 273.514H236.098L224.525 347.243H161.251ZM295.129 221.188L269.72 59.3108L244.311 221.188H295.129Z"
-						fill="#F2F2F2"></path>
-				</g>
-				<g style="z-index: 10;">
-					<path fill-rule="evenodd" clip-rule="evenodd"
-						d="M592.588 347.243L659.668 4.75676H747.205L814.285 347.243H746.253L734.68 273.514H667.435L655.862 347.243H592.588ZM726.467 221.188L701.057 59.3108L675.648 221.188H726.467Z"
-						fill="#F2F2F2"></path>
-				</g>
-				<g style="z-index: 5;">
-					<path d="M0 4.75676V347.243H146.529V294.919H67.5555V4.75676H0Z" fill="#F2F2F2"></path>
-				</g>
-			</svg>
-			<div class="flex -space-y-2 space-y-reverse flex-col">
-				<h1
-					class="h-auto w-full -mx-4 overflow-visible text-[16rem] leading-[14rem] tracking-[-1rem] text-[#E03E1A] font-bold uppercase ">
-					{{ title }}
-				</h1>
-				<span class=" text-2xl tracking-tight leading-6 order-first "> {{ subheader }} </span>
+					<div class="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
+						<div
+							class="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-none xl:pt-80">
+							<div class="relative">
+								{{ photo offset="0" limit="1" }}
+									{{ if type == "pic" }}
+										<div class="relative">
+											{{ image }}
+												{{ partial src="statamic-peak-tools::components/picture" :image="url" class="aspect-[3/4] w-full hidden xl:block rounded-md bg-neutral-900/5 object-cover shadow-lg" sizes="(min-width: 1024px) 500px, 400px" lazy="true" }}
+												{{ partial src="statamic-peak-tools::components/picture" :image="url" class="aspect-[3/4] xl:hidden w-full rounded-md bg-neutral-900/5 object-cover shadow-lg" sizes="200px" lazy="true" }}
+											{{ /image }}
+											<div
+												class="pointer-events-none absolute inset-0 rounded-md ring-1 ring-inset ring-neutral-900/10 dark:ring-neutral-100/10">
+											</div>
+										</div>
+									{{ /if }}
+								{{ /photo }}
+							</div>
+						</div>
+						<div class="mr-auto w-44 flex-none space-y-8 sm:mr-0 sm:pt-52 lg:pt-36">
+							<div class="relative">
+								{{ photo offset="0" limit="1" }}
+									{{ if type == "pic" }}
+										<div class="relative">
+											{{ image }}
+												{{ partial src="statamic-peak-tools::components/picture" :image="url" class="aspect-[3/4] w-full hidden xl:block rounded-md bg-neutral-900/5 object-cover shadow-lg" sizes="(min-width: 1024px) 500px, 400px" lazy="true" }}
+												{{ partial src="statamic-peak-tools::components/picture" :image="url" class="aspect-[3/4] xl:hidden w-full rounded-md bg-neutral-900/5 object-cover shadow-lg" sizes="200px" lazy="true" }}
+											{{ /image }}
+											<div
+												class="pointer-events-none absolute inset-0 rounded-md ring-1 ring-inset ring-neutral-900/10 dark:ring-neutral-100/10">
+											</div>
+										</div>
+									{{ /if }}
+								{{ /photo }}
+							</div>
+							<div class="relative">
+								{{ photo offset="0" limit="1" }}
+									{{ if type == "pic" }}
+										<div class="relative">
+											{{ image }}
+												{{ partial src="statamic-peak-tools::components/picture" :image="url" class="aspect-[3/4] w-full hidden xl:block rounded-md bg-neutral-900/5 object-cover shadow-lg" sizes="(min-width: 1024px) 500px, 400px" lazy="true" }}
+												{{ partial src="statamic-peak-tools::components/picture" :image="url" class="aspect-[3/4] xl:hidden w-full rounded-md bg-neutral-900/5 object-cover shadow-lg" sizes="200px" lazy="true" }}
+											{{ /image }}
+											<div
+												class="pointer-events-none absolute inset-0 rounded-md ring-1 ring-inset ring-neutral-900/10 dark:ring-neutral-100/10">
+											</div>
+										</div>
+									{{ /if }}
+								{{ /photo }}
+							</div>
+						</div>
+						<div class="w-44 flex-none space-y-8 pt-32 sm:pt-0">
+							<div class="relative">
+								{{ photo offset="0" limit="1" }}
+									{{ if type == "pic" }}
+										<div class="relative">
+											{{ image }}
+												{{ partial src="statamic-peak-tools::components/picture" :image="url" class="aspect-[3/4] w-full hidden xl:block rounded-md bg-neutral-900/5 object-cover shadow-lg" sizes="(min-width: 1024px) 500px, 400px" lazy="true" }}
+												{{ partial src="statamic-peak-tools::components/picture" :image="url" class="aspect-[3/4] xl:hidden w-full rounded-md bg-neutral-900/5 object-cover shadow-lg" sizes="200px" lazy="true" }}
+											{{ /image }}
+											<div
+												class="pointer-events-none absolute inset-0 rounded-md ring-1 ring-inset ring-neutral-900/10 dark:ring-neutral-100/10">
+											</div>
+										</div>
+									{{ /if }}
+								{{ /photo }}
+							</div>
+							<div class="relative">
+								{{ photo offset="0" limit="1" }}
+									{{ if type == "pic" }}
+										<div class="relative">
+											{{ image }}
+												{{ partial src="statamic-peak-tools::components/picture" :image="url" class="aspect-[3/4] w-full hidden xl:block rounded-md bg-neutral-900/5 object-cover shadow-lg" sizes="(min-width: 1024px) 500px, 400px" lazy="true" }}
+												{{ partial src="statamic-peak-tools::components/picture" :image="url" class="aspect-[3/4] xl:hidden w-full rounded-md bg-neutral-900/5 object-cover shadow-lg" sizes="200px" lazy="true" }}
+											{{ /image }}
+											<div
+												class="pointer-events-none absolute inset-0 rounded-md ring-1 ring-inset ring-neutral-900/10 dark:ring-neutral-100/10">
+											</div>
+										</div>
+									{{ /if }}
+								{{ /photo }}
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-</section>
-
-
-{{# Gallery #}}
+</main>
 <!-- End: /page_builder/_hero_home.antlers.html -->

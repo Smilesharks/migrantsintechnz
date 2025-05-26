@@ -5,50 +5,68 @@
 #}}
 
 <!-- /page_builder/_the_directory.antlers.html -->
-<section class="mx-auto max-w-6xl space-y-2 py-24">
+<section class="mx-auto max-w-6xl space-y-2 px-4 md:px-6 py-24">
 	{{ partial:components/section_title title="Join the Directory" url="true" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vulputate ultricies augue in molestie. Aliquam rhoncus ultrices euismod. Morbi auctor scelerisque lacus, nec vehicula eros tempus at. Vestibulum scelerisque finibus leo ac aliquam." }}
-	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
-
-		{{ collection:migrants }}
-			{{ loop times="5" }}
-				<a class="relative group flex flex-col" href="#">
-					<div
-						class="overflow-hidden rounded-2xl border border-neutral-100 bg-neutral-50 p-2 dark:border-neutral-800 dark:bg-neutral-800">
-						<div
-							class="overflow-clip rounded-lg shadow-md ring-0 shadow-neutral-500/20 ring-orange-500 transition-shadow group-hover:shadow-sm group-hover:ring-4 group-hover:shadow-neutral-400/20 dark:group-hover:shadow-neutral-600/20">
-							<img class="inset-0 aspect-square w-full object-cover grayscale transition-all group-hover:scale-105"
-								alt="Ariel Cerda" src="https://thispersondoesnotexist.com/" />
-						</div>
-					</div>
-					<div class="p-2">
-						<h3 class="text-md mb-2 font-medium text-black dark:text-neutral-100" x-text="user.name">
-							{{ title }}
-						</h3>
-						<p class="text-xs font-medium text-neutral-700 dark:text-neutral-400" x-text="user.title">
-							{{ position }}
-						</p>
-						<div class="flex items-center gap-1 text-neutral-500 dark:text-neutral-400">
-							<svg class="icon size-3" viewBox="0 0 24 24" fill="currentColor"
-								xmlns="http://www.w3.org/2000/svg">
-								<path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
-								<path
-									d="M18.364 4.636a9 9 0 0 1 .203 12.519l-.203 .21l-4.243 4.242a3 3 0 0 1 -4.097 .135l-.144 -.135l-4.244 -4.243a9 9 0 0 1 12.728 -12.728zm-6.364 3.364a3 3 0 1 0 0 6a3 3 0 0 0 0 -6z">
-								</path>
-							</svg>
-							<p class="text-xs" x-text="user.location">{{ location }}</p>
-						</div>
-					</div>
-					<div class="flex flex-wrap gap-2 p-2">
-						<span
-							class="inline-flex items-center rounded-md bg-neutral-50 px-2 py-1 text-xs text-neutral-800 ring-1 ring-neutral-600/20 ring-inset dark:bg-neutral-800 dark:text-neutral-300 dark:ring-neutral-400/20">
-							{{ tags }} mitag
-						</span>
-					</div>
-				</a>
-			{{ /loop }}
-		{{ /collection:migrants }}
-
-
+	<div x-data x-init="
+            $nextTick(() => {
+                const content = $refs.content;
+                const item = $refs.item;
+                const clone = item.cloneNode(true);
+                content.appendChild(clone);
+            });
+    " class="relative w-full container-block">
+		<div class="relative w-full py-3 mx-auto overflow-hidden max-w-7xl">
+			<div
+				class="absolute left-0 z-20 w-40 h-full bg-gradient-to-r from-[#FCECE8] dark:from-neutral-900 to-transparent">
+			</div>
+			<div
+				class="absolute right-0 z-20 w-40 h-full bg-gradient-to-l from-[#FCECE8] dark:from-neutral-900 to-transparent">
+			</div>
+			<div x-ref="content" class="flex animate-marquee">
+				<div x-ref="item"
+					class="flex items-center justify-around flex-shrink-0 w-full py-2 space-x-2 text-white">
+					{{ collection:migrants }}
+						{{ loop times="5" }}
+							{{ partial:components/person }}
+						{{ /loop }}
+					{{ /collection:migrants }}
+				</div>
+			</div>
+		</div>
 	</div>
 </section>
 <!-- End: /page_builder/_the_directory.antlers.html -->
+
+
+
+<style>
+	@keyframes marquee {
+		0% {
+			transform: translateX(0);
+		}
+
+		100% {
+			transform: translateX(-100%);
+		}
+	}
+
+	.animate-marquee {
+		animation: marquee 40s linear infinite;
+	}
+</style>
+<style>
+	/*
+     *  This is a container query used for the demo that does not need to be included
+     */
+	.container-block {
+		container-type: inline-size;
+	}
+
+	@container (max-width: 1100px) {
+
+		.container-block svg:nth-child(3),
+		.container-block svg:nth-child(4) {
+			display: none;
+		}
+	}
+</style>

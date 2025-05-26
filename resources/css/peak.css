@@ -80,7 +80,11 @@
         --focus-outline-style: dotted;
         --focus-form-outline-width: 3px;
         --focus-form-outline-offset: 0;
-        --focus-form-outline-color: color-mix(in oklab, var(--color-primary)50%, transparent);
+        --focus-form-outline-color: color-mix(
+            in oklab,
+            var(--color-primary) 50%,
+            transparent
+        );
         --focus-form-outline-style: solid;
     }
 
@@ -124,15 +128,45 @@
     /* Fluid grid for horizontal layout. */
     .fluid-grid {
         --col-gap: clamp(1rem, 3vw, 4rem);
-        --spacing-fluid-grid-gap: var(--col-gap); /* redefining this here as CSS doesn't inherit CSS variables */
+        --spacing-fluid-grid-gap: var(
+            --col-gap
+        ); /* redefining this here as CSS doesn't inherit CSS variables */
         --content-max-width: var(--breakpoint-xl);
-        --col-width: calc((min(calc(100% - var(--padding-left) - var(--padding-right) - 2 * var(--col-gap)), var(--content-max-width)) - 11 * var(--col-gap)) / 12);
-        --padding-left: clamp(calc(env(safe-area-inset-left, 0rem) + 1rem), 2vw, calc(env(safe-area-inset-left, 0rem) + 2rem));
-        --padding-right: clamp(calc(env(safe-area-inset-right, 0rem) + 1rem), 2vw, calc(env(safe-area-inset-right, 0rem) + 2rem));
+        --col-width: calc(
+            (
+                    min(
+                            calc(
+                                100% - var(--padding-left) -
+                                    var(--padding-right) - 2 * var(--col-gap)
+                            ),
+                            var(--content-max-width)
+                        ) - 11 * var(--col-gap)
+                ) / 12
+        );
+        --padding-left: clamp(
+            calc(env(safe-area-inset-left, 0rem) + 1rem),
+            2vw,
+            calc(env(safe-area-inset-left, 0rem) + 2rem)
+        );
+        --padding-right: clamp(
+            calc(env(safe-area-inset-right, 0rem) + 1rem),
+            2vw,
+            calc(env(safe-area-inset-right, 0rem) + 2rem)
+        );
         --side-width: minmax(0, 1fr);
         display: grid;
         column-gap: var(--col-gap);
-        grid-template-columns: [full-start] var(--side-width) [content-start col-1] var(--col-width) [col-2] var(--col-width) [col-3] var(--col-width) [col-4] var(--col-width) [col-5] var(--col-width) [col-6] var(--col-width) [col-7] var(--col-width) [col-8] var(--col-width) [col-9] var(--col-width) [col-10] var(--col-width) [col-11] var(--col-width) [col-12] var(--col-width) [content-end] var(--side-width) [full-end];
+        grid-template-columns: [full-start] var(--side-width) [content-start col-1] var(
+                --col-width
+            ) [col-2] var(--col-width) [col-3] var(--col-width) [col-4] var(
+                --col-width
+            ) [col-5] var(--col-width) [col-6] var(--col-width) [col-7] var(
+                --col-width
+            ) [col-8] var(--col-width) [col-9] var(--col-width) [col-10] var(
+                --col-width
+            ) [col-11] var(--col-width) [col-12] var(--col-width) [content-end] var(
+                --side-width
+            ) [full-end];
     }
 
     /* Span utilities for fluid grid. */
@@ -188,7 +222,7 @@
     }
 
     > *:not(.no-space-y, .no-space-b) + *:not(.no-space-y, .no-space-t) {
-        margin-block-start: var(--stack-item-space, var(--stack-space, 4rem))
+        margin-block-start: var(--stack-item-space, var(--stack-space, 4rem));
     }
 }
 

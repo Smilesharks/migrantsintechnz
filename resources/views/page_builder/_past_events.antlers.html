@@ -5,19 +5,93 @@
 #}}
 
 <!-- /page_builder/_past_events.antlers.html -->
-<section class="mx-auto max-w-6xl space-y-2 py-24">
-	{{ partial:components/section_title title="Past Events" url="false" description="Expert guides and tutorials to optimize your WordPress performance." }}
-	{{ collection:events }}
-		<a href="{{ url }}">
-			<div class="flex flex-col">
-				<div class="mb-6">
-					<span
-						class="dark:bg-neutral-800 bg-neutral-100 text-primary font-bold rounded px-3 py-1.5 inline-block">{{ date }}</span>
-				</div>
-				<h2 class="text-2xl font-bold text-white mb-2">{{ title }}</h2>
-				<p class="text-neutral-400 line-clamp-2 mb-3">{{ description }}</p>
+
+<div class="py-24 hidden sm:py-32">
+
+	<div class="mx-auto grid max-w-7xl grid-cols-1 gap-x-8 gap-y-12 px-6 sm:gap-y-16 lg:grid-cols-2 lg:px-8">
+		<div class="mx-auto w-full max-w-2xl lg:mx-0 lg:max-w-lg">
+			{{ partial:components/section_title title="Past Events" url="false" }}
+		</div>
+		<div
+			class="mx-auto w-full max-w-2xl border-t border-neutral-900/10 pt-12 sm:pt-16 lg:mx-0 lg:max-w-none lg:border-t-0 lg:pt-0">
+			<div class="-my-12 divide-y divide-neutral-900/10">
+				{{ collection:events }}
+					<article class="py-12">
+						<div class="group relative max-w-xl">
+							<time datetime="2020-03-16"
+								class="block text-sm leading-6 dark:text-neutral-400 text-neutral-600">{{ date }}</time>
+							<h2
+								class="mt-2 text-lg font-bold text-pretty dark:text-neutral-100 text-neutral-900 group-hover:text-neutral-600">
+								<a href="#">
+									<span class="absolute inset-0"></span>
+									{{ title }}
+								</a>
+							</h2>
+							<p class="mt-4 text-sm leading-6 dark:text-neutral-400 text-neutral-600">
+								{{ description | strip_tags:p }}
+							</p>
+						</div>
+					</article>
+				{{ /collection:events }}
+
 			</div>
-		</a>
-	{{ /collection:events }}
-</section>
+		</div>
+	</div>
+</div>
 <!-- End: /page_builder/_past_events.antlers.html -->
+
+
+<div class="mt-24 overflow-hidden sm:mt-32">
+	<div class="mx-auto max-w-6xl px-6 lg:flex lg:px-8">
+		<div
+			class="mx-auto grid max-w-2xl grid-cols-1 gap-x-12 gap-y-16 lg:mx-0 lg:min-w-full lg:max-w-none lg:flex-none lg:gap-y-8">
+			<div class="lg:col-end-1 lg:w-full lg:max-w-lg lg:pb-8">
+				{{ partial:components/section_title title="Past Events" url="false" }}
+				<div class="divide-y divide-neutral-900/10">
+					{{ collection:events }}
+						<article class="py-12">
+							<div class="group relative max-w-xl">
+								<time datetime="2020-03-16"
+									class="block text-sm leading-6 dark:text-neutral-400 text-neutral-600">{{ date }}</time>
+								<h2
+									class="mt-2 text-lg font-bold text-pretty dark:text-neutral-200 text-neutral-900 dark:group-hover:text-neutral-100 group-hover:text-neutral-600">
+									<a href="#">
+										<span class="absolute inset-0"></span>
+										{{ title }}
+									</a>
+								</h2>
+								<div class="mt-4 text-sm leading-6 dark:text-neutral-400 text-neutral-600">
+									{{ description | truncate(220, '...') }}
+								</div>
+							</div>
+						</article>
+					{{ /collection:events }}
+
+				</div>
+			</div>
+			<div class="flex flex-wrap items-start justify-end gap-6 sm:gap-8 lg:contents">
+				<div class="w-0 flex-auto lg:ml-auto lg:w-auto lg:flex-none lg:self-end">
+					<img src="https://images.unsplash.com/photo-1670272502246-768d249768ca?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1152&q=80"
+						alt="" class="aspect-[7/5] w-[37rem] max-w-none rounded-2xl bg-gray-50 object-cover">
+				</div>
+				<div
+					class="contents lg:col-span-2 lg:col-end-2 lg:ml-auto lg:flex lg:w-[37rem] lg:items-start lg:justify-end lg:gap-x-8">
+					<div class="order-first flex w-64 flex-none justify-end self-end lg:w-auto">
+						<img src="https://images.unsplash.com/photo-1605656816944-971cd5c1407f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=768&h=604&q=80"
+							alt=""
+							class="aspect-[4/3] w-[24rem] max-w-none flex-none rounded-2xl bg-gray-50 object-cover">
+					</div>
+					<div class="flex w-96 flex-auto justify-end lg:w-auto lg:flex-none">
+						<img src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1152&h=842&q=80"
+							alt=""
+							class="aspect-[7/5] w-[37rem] max-w-none flex-none rounded-2xl bg-gray-50 object-cover">
+					</div>
+					<div class="hidden sm:block sm:w-0 sm:flex-auto lg:w-auto lg:flex-none">
+						<img src="https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=768&h=604&q=80"
+							alt="" class="aspect-[4/3] w-[24rem] max-w-none rounded-2xl bg-gray-50 object-cover">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

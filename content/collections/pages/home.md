@@ -3,7 +3,7 @@ id: home
 blueprint: page
 title: Home
 updated_by: b702c7e5-e21a-41a0-a013-e48f0ff5b708
-updated_at: 1748053025
+updated_at: 1748239593
 seo_noindex: false
 seo_nofollow: false
 seo_canonical_type: entry
@@ -85,7 +85,7 @@ page_builder:
       -
         id: mb09dyi1
         text: 'Upcoming event'
-        button_type: inline
+        button_type: secondary
         type: button
         enabled: true
         label: 'View more'
@@ -144,7 +144,33 @@ page_builder:
   -
     id: mb08j20k
     type: gallery
-    enabled: true
+    enabled: false
+    gallery_images:
+      -
+        id: mb4m234y
+        image: 023a9843.jpg
+        type: image
+        enabled: true
+      -
+        id: mb4m2gdz
+        image: 023a9843.jpg
+        type: image
+        enabled: true
+      -
+        id: mb4m2fdh
+        image: 023a9843.jpg
+        type: image
+        enabled: true
+      -
+        id: mb4m2dyp
+        image: 023a9843.jpg
+        type: image
+        enabled: true
+      -
+        id: mb4m4tly
+        image: 023a9843.jpg
+        type: image
+        enabled: true
   -
     id: mb08kkji
     type: past_events

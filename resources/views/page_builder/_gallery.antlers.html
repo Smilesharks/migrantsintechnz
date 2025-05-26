@@ -4,24 +4,29 @@
     @set page.page_builder.gallery
 #}}
 
+{{#
+    Horizontal Image Gallery with Lightbox
+    
+    Usage: {{ partial:page_builder/gallery }}
+    
+    Optional parameters:
+    - class: Additional CSS classes for the section wrapper
+    - container_class: CSS classes for the inner container
+    
+    Requirements: Alpine.js must be loaded on the page
+#}}
+
+
+
 <!-- /page_builder/_gallery.antlers.html -->
 <section class="mx-auto max-w-[90rem] px-4 pb-24">
 	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
-		<div class="flex flex-col transform -translate-y-1/4">
-			<img class="rounded-lg" src="https://placehold.co/400x400" alt="">
-		</div>
-		<div class="flex flex-col transform translate-y-1/3">
-			<img class="rounded-lg" src="https://placehold.co/400x400" alt="">
-		</div>
-		<div class="flex flex-col">
-			<img class="rounded-lg" src="https://placehold.co/400x400" alt="">
-		</div>
-		<div class="flex flex-col transform translate-y-3/4">
-			<img class="rounded-lg" src="https://placehold.co/400x400" alt="">
-		</div>
-		<div class="flex flex-col translate-y-1/4">
-			<img class="rounded-lg" src="https://placehold.co/400x400" alt="">
-		</div>
+		{{ gallery_images }}
+			<div class="flex flex-col transform {{ switch between='-translate-y-1/4| -translate-y-1/3|' }}">
+				{{ partial src="statamic-peak-tools::components/picture" :image="image.url" class="aspect-[4/3] w-full hidden xl:block rounded-md bg-neutral-900/5 object-cover shadow-lg" sizes="(min-width: 1024px) 500px, 400px" lazy="true" }}
+				{{ partial src="statamic-peak-tools::components/picture" :image="image.url" class="aspect-[4/3] xl:hidden w-full rounded-md bg-neutral-900/5 object-cover shadow-lg" sizes="200px" lazy="true" }}
+			</div>
+		{{ /gallery_images }}
 	</div>
 </section>
 <!-- End: /page_builder/_gallery.antlers.html -->

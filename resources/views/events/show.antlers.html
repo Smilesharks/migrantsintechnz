@@ -1,16 +1,14 @@
 {{#
-	@name Events show
-	@desc The Events show template.
+    @name Events show
+    @desc The Events show template.
 #}}
 
 <!-- /events/show.antlers.html -->
-<main class="outer-grid" id="content">
-    <div class="fluid-container">
-        {{ partial:typography/h1 :content="title" }}
+<main class="px-6 py-32 lg:px-8" id="content">
+    <div class="mx-auto max-w-3xl text-base leading-7 text-neutral dark:text-neutral-300">
+        <p class="text-base font-semibold leading-7 text-orange-600">{{ date }}</p>
+        <h1 class="my-2 text-3xl font-bold tracking-tight sm:text-4xl">{{ title }}</h1>
+        <div class="prose dark:prose-invert">{{ description }}</div>
     </div>
-
-    {{ page_builder scope="block" }}
-        {{ partial src="page_builder/{type}" }}
-    {{ /page_builder }}
 </main>
 <!-- /events/show.antlers.html -->

@@ -5,10 +5,9 @@
 #}}
 
 <!-- /page_builder/_full_width_image.antlers.html -->
-<div>
-	{{ big_image }}
-		{{ partial src="statamic-peak-tools::components/picture" :image="url" class="hidden lg:block mx-auto w-[1768px]" sizes="(min-width: 1024px) 1700px, 492px" lazy="true" }}
-		{{ partial src="statamic-peak-tools::components/picture" :image="url" class="block lg:hidden" sizes="200px" lazy="true" }}
-	{{ /big_image }}
-</div>
+{{ big_image }}
+    {{ partial src="statamic-peak-tools::components/picture" :image="url" class="hidden -translate-y-28 lg:block mx-auto w-[1768px]" sizes="(min-width: 1024px) 1700px, 492px" lazy="false" }}
+    {{ partial src="statamic-peak-tools::components/picture" :image="url" class="block lg:hidden" sizes="450px" lazy="false" }}
+{{ /big_image }}
+
 <!-- End: /page_builder/_full_width_image.antlers.html -->

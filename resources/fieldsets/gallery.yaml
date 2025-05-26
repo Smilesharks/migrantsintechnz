@@ -1,2 +1,30 @@
-title: 'Gallery'
-fields: [ ]
+title: Gallery
+fields:
+  -
+    handle: gallery_images
+    field:
+      type: replicator
+      display: 'Gallery Images'
+      instructions: 'Add up to 5 images for the horizontal gallery. Images will display with lightbox functionality.'
+      max_sets: 5
+      sets:
+        main:
+          display: Main
+          sets:
+            image:
+              display: Image
+              fields:
+                -
+                  handle: image
+                  field:
+                    type: assets
+                    display: Image
+                    container: images
+                    max_files: 1
+                    validate: required
+                -
+                  handle: alt_text
+                  field:
+                    type: text
+                    display: 'Alt Text'
+                    instructions: 'Describe the image for accessibility. Leave blank to auto-generate from filename.'

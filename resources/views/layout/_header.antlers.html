@@ -4,6 +4,50 @@
 #}}
 
 <!-- /layout/_header.antlers.html -->
+{{ collection:events }}
+    <div
+        class="bg-gradient-to-r border-b border-orange-600 dark:border-b dark:border-neutral-800 dark:from-neutral-800  dark:to-neutral-900 from-orange-400 gap-6 hiddenss    to-orange-500 ">
+        <div
+            class="max-w-6xl mx-auto flex items-center max-lg:gap-2 overflow-hidden relative whitespace-nowrap text-orange-800 dark:text-neutral-900 text-ellipsis text-sm px-3 py-2">
+
+            <span
+                class="dark:text-neutral-100 font-semibold bg-neutral-700 dark:bg-orange-700 inline-block max-md:hidden mr-0.5 px-2 py-1 rounded-md rtl:ml-0.5 rtl:mr-0 text-xs text-neutral-100">✨
+                New Event</span> <a
+                class="flex gap-2 dark:text-orange-500 font-medium hover:underline items-center text-muted text-neutral-500 max-lg:text-xs"
+                href="https://events.humanitix.com/migrants-in-tech-auckland-meet-up-april-2025"><svg
+                    class="lucide dark:text-orange-500 size-4 text-orange-800 lucide-calendar" viewBox="0 0 24 24"
+                    fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-linecap="round"
+                    stroke-linejoin="round" stroke-width="2">
+                    <path d="M8 2v4"></path>
+                    <path d="M16 2v4"></path>
+                    <rect height="18" rx="2" width="18" x="3" y="4"></rect>
+                    <path d="M3 10h18"></path>
+                </svg> {{ type }} - {{ date }}, {{ time_start }} - {{ time_end }} NZDT</a> <a
+                class="flex gap-2 dark:text-orange-500 font-medium hover:underline items-center text-muted text-neutral-500 max-md:hidden"
+                href="https://maps.app.goo.gl/RVxetRMsyCSSabRa8"><svg
+                    class="lucide dark:text-orange-500 size-4 text-orange-800 lucide-map-pin" viewBox="0 0 24 24"
+                    fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-linecap="round"
+                    stroke-linejoin="round" stroke-width="2">
+                    <path
+                        d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0">
+                    </path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                </svg> {{ location }} </a><a
+                class="items-center inline-flex rounded-md bg-neutral-950 dark:bg-orange-500 dark:text-white font-medium group h-8 hover:scale-110 justify-center ml-auto overflow-hidden px-6 relative text-neutral-200 transition"
+                href="https://events.humanitix.com/migrants-in-tech-auckland-meet-up-april-2025/tickets" target="_blank"
+                title="Get tickets"><span class="hidden lg:block">Get tickets</span> <span
+                    class="lg:hidden block">Tickets</span>
+                <div
+                    class="flex absolute justify-center [transform:skew(-12deg)_translateX(-100%)] group-hover:[transform:skew(-12deg)_translateX(100%)] group-hover:duration-1000 h-full inset-0 w-full">
+                    <div class="relative bg-white/20 h-full w-8"></div>
+                </div>
+            </a>
+
+        </div>
+    </div>
+{{ /collection:events }}
+
+
 <header class="fluid-grid py-4">
     <div class="span-content flex justify-between isolate z-10 items-center">
         {{# Make partials you want to use for the header or use and edit premade examples like the following ones. #}}
