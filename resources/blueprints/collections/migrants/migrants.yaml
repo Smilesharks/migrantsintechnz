@@ -16,17 +16,12 @@ tabs:
               validate:
                 - required
           -
-            handle: image
-            field:
-              container: images
-              type: assets
-              display: Image
-              width: 33
+            import: image
           -
-            handle: url
+            handle: link
             field:
               type: link
-              display: url
+              display: link
               width: 33
           -
             handle: email
