@@ -3,7 +3,7 @@ id: home
 blueprint: page
 title: Home
 updated_by: b702c7e5-e21a-41a0-a013-e48f0ff5b708
-updated_at: 1749021956
+updated_at: 1749181080
 seo_noindex: false
 seo_nofollow: false
 seo_canonical_type: entry
@@ -133,6 +133,29 @@ page_builder:
     id: mb08hw0r
     type: the_directory
     enabled: true
+    title: 'Join the Directory'
+    description:
+      -
+        type: paragraph
+        content:
+          -
+            type: text
+            text: 'Aliquam placerat eu enim ac faucibus. Donec ac diam congue, lobortis magna nec, fermentum arcu. Ut ornare enim at elit molestie congue. Nullam commodo bibendum accumsan. Morbi luctus mauris ac fringilla scelerisque. Proin elit sem, tempus consequat lectus nec, volutpat hendrerit ligula. Phasellus molestie blandit erat, vitae ullamcorper ante viverra et.'
+    buttons:
+      -
+        id: mbk97pw1
+        label: 'Join us'
+        link_type: url
+        target_blank: false
+        url: '#'
+        button_type: button
+      -
+        id: mbk98hed
+        label: 'View more'
+        link_type: url
+        target_blank: false
+        url: '#'
+        button_type: secondary
   -
     id: mb08kkji
     type: past_events
