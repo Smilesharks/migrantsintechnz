@@ -3,7 +3,7 @@ id: home
 blueprint: page
 title: Home
 updated_by: b702c7e5-e21a-41a0-a013-e48f0ff5b708
-updated_at: 1748239593
+updated_at: 1749021956
 seo_noindex: false
 seo_nofollow: false
 seo_canonical_type: entry
@@ -31,26 +31,18 @@ page_builder:
     photo:
       -
         id: mb07yb98
-        image:
-          - 023a9843.jpg
         type: pic
         enabled: true
       -
         id: mb07ylui
-        image:
-          - 023a9843.jpg
         type: pic
         enabled: true
       -
         id: mb07yki9
-        image:
-          - 023a9843.jpg
         type: pic
         enabled: true
       -
         id: mb07yj9s
-        image:
-          - 023a9843.jpg
         type: pic
         enabled: true
   -
@@ -104,7 +96,7 @@ page_builder:
                 type: text
                 text: 'We host regular meet-ups where you can connect with fellow migrants and local tech professionals. Our events feature guest speakers who share valuable insights on relevant topics in the tech industry. There is also free pizza and drinks 🎉'
         image:
-          - 023a9843.jpg
+          - 023a9289-01.jpg
         type: step
         enabled: true
       -
@@ -118,7 +110,7 @@ page_builder:
                 type: text
                 text: "Gain knowledge from industry leaders who discuss everything from career development to the latest tech trends. These sessions are designed to provide practical advice and inspiration to help you thrive in Auckland's tech ecosystem."
         image:
-          - 023a9843.jpg
+          - 163c6489-01.jpg
         type: step
         enabled: true
       -
@@ -132,7 +124,7 @@ page_builder:
                 type: text
                 text: 'New developments are coming! We’re planning to offer further learning opportunities, including workshops and mentoring sessions, to help you grow both personally and professionally.'
         image:
-          - 023a9843.jpg
+          - 023a9368-01.jpg
         type: step
         enabled: true
     big_image:
@@ -142,37 +134,32 @@ page_builder:
     type: the_directory
     enabled: true
   -
-    id: mb08j20k
-    type: gallery
-    enabled: false
-    gallery_images:
-      -
-        id: mb4m234y
-        image: 023a9843.jpg
-        type: image
-        enabled: true
-      -
-        id: mb4m2gdz
-        image: 023a9843.jpg
-        type: image
-        enabled: true
-      -
-        id: mb4m2fdh
-        image: 023a9843.jpg
-        type: image
-        enabled: true
-      -
-        id: mb4m2dyp
-        image: 023a9843.jpg
-        type: image
-        enabled: true
-      -
-        id: mb4m4tly
-        image: 023a9843.jpg
-        type: image
-        enabled: true
-  -
     id: mb08kkji
     type: past_events
     enabled: true
+    grid_images:
+      -
+        id: mbhc0pni
+        image: p1637660-01.jpg
+        size: xl
+        type: new_set
+        enabled: true
+      -
+        id: mbhlocv0
+        image: 023a9730-01.jpg
+        size: xl
+        type: new_set
+        enabled: true
+      -
+        id: mbhlobkr
+        image: 023a9952-01.jpg
+        size: xl
+        type: new_set
+        enabled: true
+      -
+        id: mbhloabo
+        image: 023a9362-01.jpg
+        size: xl
+        type: new_set
+        enabled: true
 ---

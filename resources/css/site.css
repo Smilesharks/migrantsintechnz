@@ -4,7 +4,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-    --color-primary: oklch(0.6019 0.2039 33.52);
+    --color-primary: oklch(0.2099 0.0039 286.06); /* color en modo oscuro */
 
     --color-neutral: var(--color-zinc-800);
     --color-neutral-50: var(--color-zinc-50);
@@ -19,7 +19,9 @@
     --color-neutral-900: var(--color-zinc-900);
     --color-neutral-950: var(--color-zinc-950);
 
-    /* --font-sans: Gaultier, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; */
+    --font-sans: Gaultier, ui-sans-serif, system-ui, sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+        "Noto Color Emoji";
     /* --font-serif: Lavigne, ui-serif, Georgia, Cambria, "Times New Roman", Times, serif; */
     /* --font-mono: Anonymous, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; */
 
@@ -33,6 +35,10 @@
     --font-weight-bold: 700;
     /* --font-weight-extrabold: 800; */
     /* --font-weight-black: 900; */
+}
+
+.dark {
+    --color-primary: oklch(0.6639 0.2249 33.57);
 }
 
 @layer base {
@@ -84,5 +90,35 @@
 
     to {
         opacity: 1;
+    }
+}
+
+.scroll_watcher * {
+    --tw-translate-x: 0px;
+    animation: spin linear reverse;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+        rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+        scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    animation-timeline: view();
+}
+
+.scroll_watcher :first-child,
+.scroll_watcher :nth-child(2),
+.scroll_watcher :nth-child(3),
+.scroll_watcher :nth-child(4),
+.scroll_watcher :nth-child(5) {
+    animation-range: 150px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotateY(-100deg);
+        transform-origin: top;
+    }
+
+    10% {
+        opacity: 1;
+        transform: rotateY(0deg);
+        transform-origin: top;
     }
 }

@@ -1,2 +1,16 @@
 title: 'Past Events'
-fields: [ ]
+fields:
+  -
+    handle: grid_images
+    field:
+      type: replicator
+      display: 'Grid images'
+      sets:
+        new_set_group:
+          display: 'New Set Group'
+          sets:
+            new_set:
+              display: 'New Set'
+              fields:
+                -
+                  import: image

@@ -6,28 +6,63 @@
 
 <!-- /page_builder/_the_event.antlers.html -->
 <section>
-	<div class="mx-auto max-w-6xl">
+	<div class="max-w-6xl px-4 mx-auto md:px-6">
 		<!-- Header Section -->
 		{{ partial:components/section_title :title='title' url="true" :description="description" }}
 	</div>
-	<div class="mx-auto max-w-6xl my-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+	<div class="grid max-w-6xl grid-cols-1 gap-8 px-4 mx-auto my-16 md:px-6 md:grid-cols-2 lg:grid-cols-3">
 		<!-- Step 1 -->
 		{{ steps }}
 			<div class="flex flex-col justify-between">
 				<div>
 					<div class="mb-6">
 						<span
-							class="bg-orange-950 text-orange-500 font-bold rounded px-3 py-1.5 inline-block">{{ count }}</span>
+							class="inline-block p-3 font-bold rounded  text-primary {{ switch between='bg-orange-500|bg-sky-500|bg-pink-500' }} ">
+							{{ if index == 0 }}
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+									fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+									stroke-linejoin="round"
+									class="lucide lucide-message-circle-heart-icon lucide-message-circle-heart">
+									<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
+									<path
+										d="M15.8 9.2a2.5 2.5 0 0 0-3.5 0l-.3.4-.35-.3a2.42 2.42 0 1 0-3.2 3.6l3.6 3.5 3.6-3.5c1.2-1.2 1.1-2.7.2-3.7" />
+								</svg>
+							{{ elseif index == 1 }}
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+									fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+									stroke-linejoin="round" class="lucide lucide-mic-vocal-icon lucide-mic-vocal">
+									<path
+										d="m11 7.601-5.994 8.19a1 1 0 0 0 .1 1.298l.817.818a1 1 0 0 0 1.314.087L15.09 12" />
+									<path
+										d="M16.5 21.174C15.5 20.5 14.372 20 13 20c-2.058 0-3.928 2.356-6 2-2.072-.356-2.775-3.369-1.5-4.5" />
+									<circle cx="16" cy="7" r="5" />
+								</svg>
+							{{ elseif index == 2 }}
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+									fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+									stroke-linejoin="round" class="lucide lucide-handshake-icon lucide-handshake">
+									<path d="m11 17 2 2a1 1 0 1 0 3-3" />
+									<path
+										d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4" />
+									<path d="m21 3 1 11h-2" />
+									<path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3" />
+									<path d="M3 4h8" />
+								</svg>
+							{{ else }}
+							{{ /if }}
+						</span>
 					</div>
-					<h2 class="text-2xl font-bold text-white mb-2">{{ title }}</h2>
-					<p class="dark:text-neutral-400 text-neutral-600 mb-3">{{ description | strip_tags:p }}</p>
+					<h2 class="mb-2 text-xl font-bold dark:text-neutral-200 text-neutral-800">{{ title }}</h2>
+					<p class="mb-3 text-sm leading-6 dark:text-neutral-400 text-neutral-600">
+						{{ description | strip_tags:p }}
+					</p>
 				</div>
 
 				<!-- Test Card -->
-				<div class="bg-neutral-800 rounded-lg mt-6 overflow-hidden">
+				<div class="mt-6 overflow-hidden rounded-lg bg-neutral-800">
 					{{ image }}
-						{{ partial src="statamic-peak-tools::components/picture" :image="url" class="hidden lg:block " sizes="(min-width: 1024px) 400px, 200px" lazy="true" }}
-						{{ partial src="statamic-peak-tools::components/picture" :image="url" class="block lg:hidden" sizes="200px" lazy="true" }}
+						{{ partial src="statamic-peak-tools::components/picture" :image="url" class="hidden aspect-[4/3] w-[24rem] object-cover lg:block " sizes="(min-width: 1024px) 400px, 200px" lazy="true" }}
+						{{ partial src="statamic-peak-tools::components/picture" :image="url" class="block aspect-[4/3] w-[24rem] object-cover lg:hidden" sizes="200px" lazy="true" }}
 					{{ /image }}
 				</div>
 			</div>

@@ -6,18 +6,18 @@
 
 <!-- /page_builder/_past_events.antlers.html -->
 
-<div class="py-24 hidden sm:py-32">
+<div class="hidden py-24 sm:py-32">
 
-	<div class="mx-auto grid max-w-7xl grid-cols-1 gap-x-8 gap-y-12 px-6 sm:gap-y-16 lg:grid-cols-2 lg:px-8">
-		<div class="mx-auto w-full max-w-2xl lg:mx-0 lg:max-w-lg">
+	<div class="grid grid-cols-1 px-6 mx-auto max-w-7xl gap-x-8 gap-y-12 sm:gap-y-16 lg:grid-cols-2 lg:px-8">
+		<div class="w-full max-w-2xl mx-auto lg:mx-0 lg:max-w-lg">
 			{{ partial:components/section_title title="Past Events" url="false" }}
 		</div>
 		<div
-			class="mx-auto w-full max-w-2xl border-t border-neutral-900/10 pt-12 sm:pt-16 lg:mx-0 lg:max-w-none lg:border-t-0 lg:pt-0">
+			class="w-full max-w-2xl pt-12 mx-auto border-t border-neutral-900/10 sm:pt-16 lg:mx-0 lg:max-w-none lg:border-t-0 lg:pt-0">
 			<div class="-my-12 divide-y divide-neutral-900/10">
 				{{ collection:events }}
 					<article class="py-12">
-						<div class="group relative max-w-xl">
+						<div class="relative max-w-xl group">
 							<time datetime="2020-03-16"
 								class="block text-sm leading-6 dark:text-neutral-400 text-neutral-600">{{ date }}</time>
 							<h2
@@ -42,54 +42,71 @@
 
 
 <div class="mt-24 overflow-hidden sm:mt-32">
-	<div class="mx-auto max-w-6xl px-6 lg:flex lg:px-8">
+	<div class="max-w-6xl px-6 mx-auto lg:flex lg:px-8">
 		<div
-			class="mx-auto grid max-w-2xl grid-cols-1 gap-x-12 gap-y-16 lg:mx-0 lg:min-w-full lg:max-w-none lg:flex-none lg:gap-y-8">
+			class="grid max-w-2xl grid-cols-1 mx-auto gap-x-12 gap-y-16 lg:mx-0 lg:min-w-full lg:max-w-none lg:flex-none lg:gap-y-8">
 			<div class="lg:col-end-1 lg:w-full lg:max-w-lg lg:pb-8">
 				{{ partial:components/section_title title="Past Events" url="false" }}
-				<div class="divide-y divide-neutral-900/10">
+				<div class="divide-y divide-neutral-900/10 dark:divide-neutral-100/10">
 					{{ collection:events }}
-						<article class="py-12">
-							<div class="group relative max-w-xl">
-								<time datetime="2020-03-16"
-									class="block text-sm leading-6 dark:text-neutral-400 text-neutral-600">{{ date }}</time>
-								<h2
-									class="mt-2 text-lg font-bold text-pretty dark:text-neutral-200 text-neutral-900 dark:group-hover:text-neutral-100 group-hover:text-neutral-600">
-									<a href="#">
-										<span class="absolute inset-0"></span>
-										{{ title }}
-									</a>
-								</h2>
-								<div class="mt-4 text-sm leading-6 dark:text-neutral-400 text-neutral-600">
-									{{ description | truncate(220, '...') }}
+						{{ loop times="3" }}
+							<article class="relative py-6 transition-all duration-300 group">
+								<div class="relative z-10">
+									<header class="mb-4">
+										<time
+											class="text-xs tracking-wide upperslate dark:text-neutral-400 text-neutral-600">{{ date }}</time>
+										<h2
+											class="mb-2 text-xl font-semibold transition-colors duration-200 group-hover:text-primary">
+											<a href="http://127.0.0.1:8000/blog/caching-cant-speed-up-everything"
+												class="block">{{ title }}</a>
+										</h2>
+									</header>
+
+
+									<footer>
+										<a href="http://127.0.0.1:8000/blog/caching-cant-speed-up-everything"
+											class="inline-flex items-center text-sm font-medium transition-colors duration-200 text-primary ">
+											Reade more
+											<svg class="ml-1.5 h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
+												fill="none" stroke="currentColor" viewBox="0 0 24 24">
+												<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+													d="M9 5l7 7-7 7"></path>
+											</svg>
+										</a>
+									</footer>
 								</div>
-							</div>
-						</article>
+							</article>
+						{{ /loop }}
 					{{ /collection:events }}
 
 				</div>
 			</div>
 			<div class="flex flex-wrap items-start justify-end gap-6 sm:gap-8 lg:contents">
-				<div class="w-0 flex-auto lg:ml-auto lg:w-auto lg:flex-none lg:self-end">
-					<img src="https://images.unsplash.com/photo-1670272502246-768d249768ca?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1152&q=80"
-						alt="" class="aspect-[7/5] w-[37rem] max-w-none rounded-2xl bg-gray-50 object-cover">
-				</div>
+				{{ grid_images }}
+					{{ if index == 0 }}
+						<div class="flex-auto w-0 lg:ml-auto lg:w-auto lg:flex-none lg:self-end">
+							{{ partial src="statamic-peak-tools::components/picture" :image="image" class="aspect-[7/5] w-[37rem] max-w-none rounded-2xl bg-gray-50 object-cover" sizes="(min-width: 1024px) 500px, 400px" lazy="true" }}
+						</div>
+					{{ /if }}
+				{{ /grid_images }}
+
 				<div
 					class="contents lg:col-span-2 lg:col-end-2 lg:ml-auto lg:flex lg:w-[37rem] lg:items-start lg:justify-end lg:gap-x-8">
-					<div class="order-first flex w-64 flex-none justify-end self-end lg:w-auto">
-						<img src="https://images.unsplash.com/photo-1605656816944-971cd5c1407f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=768&h=604&q=80"
-							alt=""
-							class="aspect-[4/3] w-[24rem] max-w-none flex-none rounded-2xl bg-gray-50 object-cover">
-					</div>
-					<div class="flex w-96 flex-auto justify-end lg:w-auto lg:flex-none">
-						<img src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1152&h=842&q=80"
-							alt=""
-							class="aspect-[7/5] w-[37rem] max-w-none flex-none rounded-2xl bg-gray-50 object-cover">
-					</div>
-					<div class="hidden sm:block sm:w-0 sm:flex-auto lg:w-auto lg:flex-none">
-						<img src="https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=768&h=604&q=80"
-							alt="" class="aspect-[4/3] w-[24rem] max-w-none rounded-2xl bg-gray-50 object-cover">
-					</div>
+					{{ grid_images }}
+						{{ if index == 1 }}
+							<div class="flex self-end justify-end flex-none order-first w-64 lg:w-auto">
+								{{ partial src="statamic-peak-tools::components/picture" :image="image" class="aspect-[4/3] w-[24rem] max-w-none flex-none rounded-2xl bg-gray-50 object-cover" sizes="(min-width: 1024px) 500px, 400px" lazy="true" }}
+							</div>
+						{{ elseif index == 2 }}
+							<div class="flex justify-end flex-auto w-96 lg:w-auto lg:flex-none">
+								{{ partial src="statamic-peak-tools::components/picture" :image="image" class="aspect-[7/5] w-[37rem] max-w-none flex-none rounded-2xl bg-gray-50 object-cover" sizes="(min-width: 1024px) 500px, 400px" lazy="true" }}
+							</div>
+						{{ elseif index == 3 }}
+							<div class="hidden sm:block sm:w-0 sm:flex-auto lg:w-auto lg:flex-none">
+								{{ partial src="statamic-peak-tools::components/picture" :image="image" class="aspect-[4/3] w-[24rem] max-w-none rounded-2xl bg-gray-50 object-cover" sizes="(min-width: 1024px) 500px, 400px" lazy="true" }}
+							</div>
+						{{ /if }}
+					{{ /grid_images }}
 				</div>
 			</div>
 		</div>
