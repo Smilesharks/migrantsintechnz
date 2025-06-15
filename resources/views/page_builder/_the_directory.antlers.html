@@ -5,50 +5,16 @@
 #}}
 
 <!-- /page_builder/_the_directory.antlers.html -->
-<section class="max-w-6xl px-4 py-24 mx-auto space-y-2 md:px-6">
+<section id="directory" class="max-w-6xl px-4 pt-24 mx-auto space-y-2 md:px-6">
 	{{ partial:components/section_title :title="title" url="true" :description="description" }}
 	<div class="relative w-full py-3 mx-auto ">
 		<div class="relative grid grid-cols-4 gap-4 px-4 py-2 mx-auto xl:grid-cols-6">
 			{{ collection:migrants limit="12" }}
-				{{ partial:components/person }}
+				{{ partial:components/person profile="true" }}
 			{{ /collection:migrants }}
 		</div>
-		<div class="absolute inset-0 z-10 border hidden bg-gradient-to-t from-[#E8E7E8] via-[#E8E7E8] ">
+		<div class="absolute inset-0 z-10 bg-gradient-to-t from-10% dark:from-[#18181A] from-[#E8E7E8] ">
 		</div>
 	</div>
 </section>
 <!-- End: /page_builder/_the_directory.antlers.html -->
-
-
-
-<style>
-	@keyframes marquee {
-		0% {
-			transform: translateX(0);
-		}
-
-		100% {
-			transform: translateX(-100%);
-		}
-	}
-
-	.animate-marquee {
-		animation: marquee 40s linear infinite;
-	}
-</style>
-<style>
-	/*
-     *  This is a container query used for the demo that does not need to be included
-     */
-	.container-block {
-		container-type: inline-size;
-	}
-
-	@container (max-width: 1100px) {
-
-		.container-block svg:nth-child(3),
-		.container-block svg:nth-child(4) {
-			display: none;
-		}
-	}
-</style>

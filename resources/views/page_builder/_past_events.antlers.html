@@ -41,42 +41,38 @@
 <!-- End: /page_builder/_past_events.antlers.html -->
 
 
-<div class="mt-24 overflow-hidden sm:mt-32">
+<div id="pastevents" class="mt-24 overflow-hidden sm:mt-32">
 	<div class="max-w-6xl px-6 mx-auto lg:flex lg:px-8">
 		<div
 			class="grid max-w-2xl grid-cols-1 mx-auto gap-x-12 gap-y-16 lg:mx-0 lg:min-w-full lg:max-w-none lg:flex-none lg:gap-y-8">
 			<div class="lg:col-end-1 lg:w-full lg:max-w-lg lg:pb-8">
 				{{ partial:components/section_title title="Past Events" url="false" }}
 				<div class="divide-y divide-neutral-900/10 dark:divide-neutral-100/10">
-					{{ collection:events }}
-						{{ loop times="3" }}
-							<article class="relative py-6 transition-all duration-300 group">
-								<div class="relative z-10">
-									<header class="mb-4">
-										<time
-											class="text-xs tracking-wide upperslate dark:text-neutral-400 text-neutral-600">{{ date }}</time>
-										<h2
-											class="mb-2 text-xl font-semibold transition-colors duration-200 group-hover:text-primary">
-											<a href="http://127.0.0.1:8000/blog/caching-cant-speed-up-everything"
-												class="block">{{ title }}</a>
-										</h2>
-									</header>
+					{{ collection:events limit="3" offset="1" sort="desc:date" }}
+
+						<article class="relative z-10 py-6 transition-all duration-300 group">
+							<header class="mb-4">
+								<time
+									class="text-xs tracking-wide upperslate dark:text-neutral-400 text-neutral-600">{{ date }}</time>
+								<h2
+									class="mb-2 text-xl font-semibold transition-colors duration-200 group-hover:text-primary">
+									<a href="{{ url }}" class="block">{{ title }}</a>
+								</h2>
+							</header>
 
 
-									<footer>
-										<a href="http://127.0.0.1:8000/blog/caching-cant-speed-up-everything"
-											class="inline-flex items-center text-sm font-medium transition-colors duration-200 text-primary ">
-											Reade more
-											<svg class="ml-1.5 h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
-												fill="none" stroke="currentColor" viewBox="0 0 24 24">
-												<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-													d="M9 5l7 7-7 7"></path>
-											</svg>
-										</a>
-									</footer>
-								</div>
-							</article>
-						{{ /loop }}
+							<footer>
+								<a href="{{ url }}"
+									class="inline-flex items-center text-sm font-medium transition-colors duration-200 text-primary ">
+									Reade more
+									<svg class="ml-1.5 h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
+										fill="none" stroke="currentColor" viewBox="0 0 24 24">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+											d="M9 5l7 7-7 7"></path>
+									</svg>
+								</a>
+							</footer>
+						</article>
 					{{ /collection:events }}
 
 				</div>

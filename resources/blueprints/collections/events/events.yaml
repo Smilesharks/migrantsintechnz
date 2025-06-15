@@ -3,10 +3,8 @@ tabs:
   main:
     display: Main
     sections:
-      -
-        fields:
-          -
-            handle: title
+      - fields:
+          - handle: title
             field:
               type: text
               required: true
@@ -15,59 +13,53 @@ tabs:
               display: Title
               validate:
                 - required
-          -
-            handle: location
+          - handle: location
             field:
               options:
-                -
-                  key: 'GridAKL/John Lysaght Auckland'
-                  value: 'GridAKL/John Lysaght Auckland'
+                - key: "GridAKL/John Lysaght Auckland"
+                  value: "GridAKL/John Lysaght Auckland"
               type: select
               display: Location
               width: 50
-          -
-            handle: url
+              default: "GridAKL/John Lysaght Auckland"
+          - handle: url
             field:
               type: link
               display: Url
               width: 25
-          -
-            handle: ticket_url
+          - handle: ticket_url
             field:
               type: link
-              display: 'Ticket Url'
+              display: "Ticket Url"
               width: 25
-          -
-            handle: date
+              default: https://events.humanitix.com/migrants-in-tech-auckland-meet/tickets
+          - handle: date
             field:
               type: date
               display: Date
               width: 50
-          -
-            handle: type
+          - handle: type
             field:
               options:
-                -
-                  key: Meet-Up
+                - key: Meet-Up
                   value: Meet-Up
-              default: meetup
+              default: Meet-Up
               type: select
               display: Type
               width: 50
-          -
-            handle: time_start
+          - handle: time_start
             field:
               type: time
-              display: 'Time Start'
+              display: "Time Start"
               width: 50
-          -
-            handle: time_end
+              default: "18:00"
+          - handle: time_end
             field:
               type: time
-              display: 'Time End'
+              display: "Time End"
               width: 50
-          -
-            handle: description
+              default: "20:30"
+          - handle: description
             field:
               remove_empty_nodes: false
               type: bard
@@ -75,16 +67,13 @@ tabs:
   sidebar:
     display: Sidebar
     sections:
-      -
-        fields:
-          -
-            handle: meta
+      - fields:
+          - handle: meta
             field:
               type: section
               instructions: "This entry's meta data."
               display: Meta
-          -
-            handle: slug
+          - handle: slug
             field:
               type: slug
               localizable: true

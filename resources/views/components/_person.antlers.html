@@ -1,4 +1,4 @@
-<a class="relative flex flex-col group" target="_blank" href="{{ link }}">
+{{ if profile }}
     <div
         class="overflow-hidden rounded-xl border border-primary/10 bg-primary/5 p-1.5 dark:border-neutral-800 dark:bg-neutral-800">
         <div
@@ -17,35 +17,57 @@
             {{ /if }}
         </div>
     </div>
-    {{ if info }}
-        <div class="p-2">
-            <h4 class="mb-2 font-bold text-neutral dark:text-neutral-100">
-                {{ title }}
-            </h4>
-            <p class="text-xs text-neutral-600 dark:text-neutral-400">
-                {{ position }}
-            </p>
-            {{ if location }}
-                <div class="flex items-center gap-1 mt-1 text-neutral-500 dark:text-neutral-400">
-                    <svg class="size-3" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
-                        <path
-                            d="M18.364 4.636a9 9 0 0 1 .203 12.519l-.203 .21l-4.243 4.242a3 3 0 0 1 -4.097 .135l-.144 -.135l-4.244 -4.243a9 9 0 0 1 12.728 -12.728zm-6.364 3.364a3 3 0 1 0 0 6a3 3 0 0 0 0 -6z">
-                        </path>
-                    </svg>
-                    <p class="text-xs">{{ location }}</p>
+{{ else }}
+    <a class="relative flex flex-col group" target="_blank" href="{{ link }}">
+        <div
+            class="overflow-hidden rounded-xl border border-primary/10 bg-primary/5 p-1.5 dark:border-neutral-800 dark:bg-neutral-800">
+            <div
+                class="transition-shadow rounded-md shadow-md overflow-clip ring-0 shadow-neutral-500/20 ring-primary group-hover:shadow-sm group-hover:ring-4 group-hover:shadow-neutral-400/20 dark:group-hover:shadow-neutral-600/20">
+                {{ if image }}
+                    {{ partial src="statamic-peak-tools::components/picture" :image="image" class="hidden object-cover w-full transition-all rounded-md shadow-lg aspect-square group-hover:scale-105 xl:block bg-neutral-900/5" sizes="(min-width: 1024px) 500px, 400px" lazy="true" }}
+                    {{ partial src="statamic-peak-tools::components/picture" :image="image" class="object-cover w-full transition-all rounded-md shadow-lg aspect-square group-hover:scale-105 xl:hidden bg-neutral-900/5" sizes="200px" lazy="true" }}
+                {{ else }}
+                    <div
+                        class="flex items-center justify-center w-full rounded-md aspect-square bg-neutral-200 dark:bg-neutral-700">
+                        <svg class="size-24 text-neutral-400 dark:text-neutral-500" fill="currentColor"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                    </div>
+                {{ /if }}
+            </div>
+        </div>
+        {{ if info }}
+            <div class="p-2">
+                <h4 class="mb-2 font-bold text-neutral dark:text-neutral-100">
+                    {{ title }}
+                </h4>
+                <p class="text-xs text-neutral-600 dark:text-neutral-400">
+                    {{ position }}
+                </p>
+                {{ if location }}
+                    <div class="flex items-center gap-1 mt-1 text-neutral-500 dark:text-neutral-400">
+                        <svg class="size-3" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
+                            <path
+                                d="M18.364 4.636a9 9 0 0 1 .203 12.519l-.203 .21l-4.243 4.242a3 3 0 0 1 -4.097 .135l-.144 -.135l-4.244 -4.243a9 9 0 0 1 12.728 -12.728zm-6.364 3.364a3 3 0 1 0 0 6a3 3 0 0 0 0 -6z">
+                            </path>
+                        </svg>
+                        <p class="text-xs">{{ location }}</p>
+                    </div>
+                {{ /if }}
+            </div>
+            {{ if tags }}
+                <div class="flex flex-wrap gap-2 p-2">
+                    {{ tags }}
+                        <span
+                            class="inline-flex items-center px-2 py-1 text-xs rounded-md bg-neutral-50 text-neutral-800 ring-1 ring-neutral-600/20 ring-inset dark:bg-neutral-800 dark:text-neutral-300 dark:ring-neutral-400/20">
+                            {{ value | trim }}
+                        </span>
+                    {{ /tags }}
                 </div>
             {{ /if }}
-        </div>
-        {{ if tags }}
-            <div class="flex flex-wrap gap-2 p-2">
-                {{ tags }}
-                    <span
-                        class="inline-flex items-center px-2 py-1 text-xs rounded-md bg-neutral-50 text-neutral-800 ring-1 ring-neutral-600/20 ring-inset dark:bg-neutral-800 dark:text-neutral-300 dark:ring-neutral-400/20">
-                        {{ value | trim }}
-                    </span>
-                {{ /tags }}
-            </div>
         {{ /if }}
-    {{ /if }}
-</a>
+    </a>
+{{ /if }}

@@ -1,0 +1,124 @@
+---
+id: ebd8a0f1-5557-4851-8dd1-c17b94a712b2
+blueprint: events
+title: 'Migrants in Tech Auckland Meet-Up #12'
+location: 'GridAKL/John Lysaght Auckland'
+url: 'https://events.humanitix.com/migrants-in-tech-auckland-meet-up-12'
+ticket_url: 'https://events.humanitix.com/migrants-in-tech-auckland-meet/tickets'
+date: '2024-08-28'
+type: Meet-Up
+time_start: '18:00'
+time_end: '20:30'
+description:
+  -
+    type: paragraph
+    content:
+      -
+        type: text
+        text: "Kia\_ora everyone!\_"
+  -
+    type: paragraph
+    content:
+      -
+        type: text
+        text: "\_"
+      -
+        type: hardBreak
+      -
+        type: text
+        text: "I hope you all had a fantastic weekend!\_"
+  -
+    type: paragraph
+    content:
+      -
+        type: text
+        text: "Just a quick update for our fantastic community members like you: our upcoming in-person meetup is live!\_"
+  -
+    type: paragraph
+    content:
+      -
+        type: text
+        text: "Join us on Wednesday 28th of August, 6pm at GridAKL/John Lysaght for our next Migrants in Tech Auckland Meet-Up.\_"
+  -
+    type: paragraph
+    content:
+      -
+        type: text
+        text: 'This time we have a special event focused on micro-credentials and internships, featuring a line-up of fantastic guest speakers, including the talented team and recent graduates from both '
+      -
+        type: text
+        marks:
+          -
+            type: link
+            attrs:
+              href: 'https://www.xn--tepkenga-szb.ac.nz/'
+              rel: null
+              target: _blank
+              title: null
+        text: 'Te Pūkenga'
+      -
+        type: text
+        text: ' and '
+      -
+        type: text
+        marks:
+          -
+            type: link
+            attrs:
+              href: 'https://www.missionreadyhq.com/'
+              rel: null
+              target: _blank
+              title: null
+        text: MissionReadyHQ
+      -
+        type: text
+        text: '. Gain insights into the world of micro-credentials and how they can enhance your career prospects. Learn about the benefits of internships and how they can serve as a gateway to full-time employment. Our speakers will share their experiences, tips, and success stories, providing valuable guidance for your professional journey. This is an event not to be missed!'
+  -
+    type: paragraph
+    content:
+      -
+        type: text
+        text: "As usual, this event will be casual, fun and family-friendly!\_– a space for you to connect with our migrant community. Pizza and beverages will be provided.\_"
+  -
+    type: paragraph
+    content:
+      -
+        type: text
+        marks:
+          -
+            type: link
+            attrs:
+              href: 'https://events.humanitix.com/migrants-in-tech-auckland-meet-up-12'
+              rel: null
+              target: _blank
+              title: null
+        text: 'RSVP here'
+      -
+        type: text
+        marks:
+          -
+            type: link
+            attrs:
+              href: 'https://events.humanitix.com/migrants-in-tech-auckland-meet-up-11'
+              rel: null
+              target: _blank
+              title: null
+        text: "\_"
+      -
+        type: text
+        text: "\_\_(spaces are limited so get in quick!)"
+  -
+    type: paragraph
+    content:
+      -
+        type: text
+        text: 'Would you like to help me as a volunteer? Just hit reply'
+  -
+    type: paragraph
+    content:
+      -
+        type: text
+        text: "Hope to see you there!\_"
+updated_by: b702c7e5-e21a-41a0-a013-e48f0ff5b708
+updated_at: 1749949535
+---
