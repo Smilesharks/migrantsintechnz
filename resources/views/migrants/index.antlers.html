@@ -1,29 +1,20 @@
-{{#
-	@name migrants index
-	@desc The migrants index template.
-#}}
-
+{{# @name migrants index @desc The migrants index template. #}}
 <!-- /migrants/index.antlers.html -->
-<main class="outer-grid" id="content">
-    <div class="fluid-container grid md:grid-cols-12 gap-12">
-        {{ collection:migrants sort="title" paginate="true" limit="10" as="items" }}
+
+<main class="flex-col max-w-6xl gap-24 py-24 mx-auto lg:flex lg:px-8">
+    {{ partial:components/section_title title="Meet the community" url="true" description="Meet the people who make our community special. The Community Directory showcases migrants in Auckland’s tech sector—from software engineers to UX designers, data analysts, and more. Browse profiles, explore portfolios, and connect directly with fellow members." }}
+    {{ collection:migrants sort="date:desc" status:in="published|draft" paginate="true" limit="24" as="items" }}
+        <div class="grid gap-12 lg:grid-cols-4">
             {{ unless no_results }}
                 {{ items }}
-                    <div class="md:col-span-6">
-                        <a class="underline" href="{{ url }}">{{ title }}</a>
-                    </div>
+                    {{ partial:components/person profile="false" }}
                 {{ /items }}
             {{ else }}
-                <div class="md:col-span-6">
-                    {{ trans:strings.no_results }}
-                </div>
+                <div class="md:col-span-6">{{ trans:strings.no_results }}</div>
             {{ /unless }}
-            {{ partial:components/pagination class="md:col-span-12" }}
-        {{ /collection:migrants }}
-    </div>
-
-    {{ page_builder scope="block" }}
-        {{ partial src="page_builder/{type}" }}
-    {{ /page_builder }}
+        </div>
+        <div class="md:col-span-10 md:col-start-2">{{ partial:components/pagination }}</div>
+    {{ /collection:migrants }}
 </main>
+
 <!-- End: /migrants/index.antlers.html -->

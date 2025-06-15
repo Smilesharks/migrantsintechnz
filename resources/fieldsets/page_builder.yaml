@@ -54,6 +54,12 @@ fields:
               fields:
                 -
                   import: cards
+        migrants_form:
+          display: 'Migrants Form'
+          instructions: null
+          fields:
+            -
+              import: migrants_form
         past_events:
           display: 'Past Events'
           instructions: null

@@ -3,7 +3,7 @@ id: home
 blueprint: page
 title: Home
 updated_by: b702c7e5-e21a-41a0-a013-e48f0ff5b708
-updated_at: 1749181080
+updated_at: 1749961707
 seo_noindex: false
 seo_nofollow: false
 seo_canonical_type: entry
@@ -140,21 +140,21 @@ page_builder:
         content:
           -
             type: text
-            text: 'Aliquam placerat eu enim ac faucibus. Donec ac diam congue, lobortis magna nec, fermentum arcu. Ut ornare enim at elit molestie congue. Nullam commodo bibendum accumsan. Morbi luctus mauris ac fringilla scelerisque. Proin elit sem, tempus consequat lectus nec, volutpat hendrerit ligula. Phasellus molestie blandit erat, vitae ullamcorper ante viverra et.'
+            text: 'Explore our community directory to discover talented migrants working in Auckland’s tech ecosystem. Whether you’re looking to collaborate, connect, or simply get inspired by others on a similar journey, our member directory makes it easy to find and reach out.'
     buttons:
       -
         id: mbk97pw1
         label: 'Join us'
-        link_type: url
+        link_type: entry
         target_blank: false
-        url: '#'
         button_type: button
+        entry: 5c526dbf-9dd7-4c52-98d8-54e00ebddfb6
       -
         id: mbk98hed
         label: 'View more'
         link_type: url
         target_blank: false
-        url: '#'
+        url: /migrants
         button_type: secondary
   -
     id: mb08kkji

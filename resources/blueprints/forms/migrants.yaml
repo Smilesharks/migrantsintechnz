@@ -1,0 +1,89 @@
+title: "Migrants Form"
+fields:
+  - handle: full_name
+    field:
+      type: text
+      display: "Full name"
+      validate:
+        - required
+
+  - handle: title
+    field:
+      type: text
+      display: "Title"
+
+  - handle: files_media
+    field:
+      type: assets
+      display: "Files & media"
+      instructions: "File size limit: 5 MB. File limit: 1."
+      max_files: 1
+      restrict: false
+      allow_uploads: true
+      validate:
+        - max:5120 # 5 MB in KB
+
+  - handle: email
+    field:
+      type: text
+      display: "What is your email address?"
+      input_type: email
+      validate:
+        - required
+        - email
+
+  - handle: website_links
+    field:
+      type: text
+      display: "Website/Github/Linkedin"
+      instructions: "Share your professional links"
+
+  - handle: tags
+    field:
+      type: select
+      display: "Tags"
+      instructions: "Select up to 2 options"
+      multiple: true
+      max_items: 2
+      options:
+        developer: Developer
+        frontend: Front-end
+        software_engineering: Software Engineering
+        designer: Designer
+        ui_ux_design: UI/UX Design
+        mobile_development: Mobile Development
+        machine_learning: Machine Learning
+        full_stack: Full stack
+        tech_ambassador: Tech ambassador
+        project_management: Project Management
+        backend: Back-end
+        database_management: Database Management
+        cto: CTO
+        other: Other
+      validate:
+        - required
+
+  - handle: location
+    field:
+      type: select
+      display: "Location"
+      options:
+        northland: "Northland - Te Tai Tokerau"
+        auckland: "Auckland - Tāmaki Makaurau"
+        waikato: "Waikato - Waikato"
+        bay_of_plenty: "Bay of Plenty - Te Moana-a-Toi"
+        gisborne: "Gisborne - Te Tairāwhiti"
+        hawkes_bay: "Hawke's Bay - Te Matau-a-Māui"
+        taranaki: "Taranaki - Taranaki"
+        manawatu_whanganui: "Manawatū-Whanganui - Manawatū-Whanganui"
+        wellington: "Wellington - Te Whanganui-a-Tara"
+        tasman: "Tasman - Te Tai o Aorere"
+        nelson: "Nelson - Whakatū"
+        marlborough: "Marlborough - Te Tauihu-o-te-waka"
+        west_coast: "West Coast - Te Tai Poutini"
+        canterbury: "Canterbury - Waitaha"
+        otago: "Otago - Ōtākou"
+        southland: "Southland - Murihiku"
+        chatham_islands: "Chatham Islands - Wharekauri / Rēkohu"
+      validate:
+        - required

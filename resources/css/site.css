@@ -4,7 +4,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-    --color-primary: oklch(0.2099 0.0039 286.06); /* color en modo oscuro */
+    --color-primary: oklch(0.2099 0.0039 286.06);
 
     --color-neutral: var(--color-zinc-800);
     --color-neutral-50: var(--color-zinc-50);
