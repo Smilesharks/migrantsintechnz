@@ -5,11 +5,9 @@
 #}}
 
 <!-- /page_builder/_the_event.antlers.html -->
-<section id="theevent">
-	<div class="max-w-6xl px-4 mx-auto md:px-6">
-		<!-- Header Section -->
-		{{ partial:components/section_title :title='title' url="true" :description="description" }}
-	</div>
+<section id="theevent" class="max-w-6xl px-4 mx-auto space-y-2 max-lg:pt-12 md:px-6">
+
+	{{ partial:components/section_title :title='title' event="true" :description="description" }}
 	<div class="grid max-w-6xl grid-cols-1 gap-8 px-4 mx-auto my-16 md:px-6 md:grid-cols-2 lg:grid-cols-3">
 		<!-- Step 1 -->
 		{{ steps }}
