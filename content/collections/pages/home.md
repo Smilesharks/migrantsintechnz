@@ -3,7 +3,7 @@ id: home
 blueprint: page
 title: Home
 updated_by: b702c7e5-e21a-41a0-a013-e48f0ff5b708
-updated_at: 1749961707
+updated_at: 1750045740
 seo_noindex: false
 seo_nofollow: false
 seo_canonical_type: entry
@@ -145,10 +145,10 @@ page_builder:
       -
         id: mbk97pw1
         label: 'Join us'
-        link_type: entry
-        target_blank: false
+        link_type: url
+        target_blank: true
         button_type: button
-        entry: 5c526dbf-9dd7-4c52-98d8-54e00ebddfb6
+        url: 'https://thin-airship-d8b.notion.site/ebd/1d0e6bda722f8098b430d2ad56f75896'
       -
         id: mbk98hed
         label: 'View more'
@@ -185,4 +185,6 @@ page_builder:
         size: xl
         type: new_set
         enabled: true
+seo_title: 'Migrants in Tech'
+seo_description: 'Empowering Migrants to Thrive in Auckland’s Tech Industry.'
 ---

@@ -5,11 +5,11 @@
 #}}
 
 <!-- /page_builder/_migrants_form.antlers.html -->
-<main class="flex-col max-w-4xl gap-24 pt-12 mx-auto lg:flex lg:px-8">
+<section class="flex-col max-w-4xl gap-24 pt-12 mx-auto lg:flex lg:px-8">
 	{{ partial:components/section_title title="Join the Directory" url="true" description="Add your profile to the Migrants in Tech Directory and help build a more connected community. Share your name, professional title, photo, and a link to your portfolio or LinkedIn so others can discover your work, reach out, and be inspired by your journey." }}
-</main>
+</section>
 
-<section id="migrantform" class="max-w-4xl px-4 pt-12 mx-auto md:px-6 text-neutral dark:text-neutral">
+<section id="migrantform" class="max-w-4xl px-4 mx-auto md:px-6 text-neutral dark:text-neutral">
 	{{ form:create in="migrants" }}
 		{{ if errors }}
 			<div
