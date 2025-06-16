@@ -6,7 +6,7 @@
 <!-- /events/index.antlers.html -->
 <main class="flex-col max-w-6xl gap-24 px-4 py-24 mx-auto lg:flex lg:px-8">
     {{ partial:components/section_title title="Past Events" url="true" description="Take a look back at some of our previous events, moments of connection, learning, and celebration within the Migrants in Tech community. From inspiring guest speakers to casual networking over pizza, these gatherings showcase the power of coming together to support each other’s journey in Auckland’s tech world." }}
-    {{ collection:events sort="date:desc" status:in="published|draft" paginate="true" limit="24" as="items" }}
+    {{ collection:events sort="date:asc|title:asc" status:in="published|draft" paginate="true" limit="24" as="items" }}
         <div class="grid gap-12 lg:grid-cols-1">
             {{ unless no_results }}
                 {{ items }}

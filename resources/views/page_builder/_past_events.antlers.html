@@ -48,7 +48,7 @@
 			<div class="lg:col-end-1 lg:w-full lg:max-w-lg lg:pb-8">
 				{{ partial:components/section_title title="previous events" url="true" }}
 				<div class="divide-y divide-neutral-900/10 dark:divide-neutral-100/10">
-					{{ collection:events limit="3" offset="1" sort="desc:date" }}
+					{{ collection:events limit="3" offset="1" sort="date:asc" }}
 						{{ partial:components/_event_item }}
 					{{ /collection:events }}
 				</div>

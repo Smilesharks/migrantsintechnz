@@ -3,14 +3,9 @@ tree:
     id: 1b80f8e5-0f32-479d-ad4e-4f1d1d992781
     entry: home
   -
-    id: a28810ee-f8ef-4585-8bcf-22eab347b00d
-    title: 'The Event'
-    url: '{{ permalink }}#theevent'
+    id: a3f0a3f2-4650-45d8-899d-2e9ccfaba2a5
+    entry: 06ebabcc-777f-4d4a-bdac-dbf86590bdf7
   -
-    id: d165b55a-1768-4a9e-8caf-251fea5e59a3
+    id: a2571c82-9ede-4f19-9a7c-0d69d04c6d2d
+    entry: 849e2c98-92b2-40cf-881a-ef509cf57806
     title: Directory
-    url: '#directory'
-  -
-    id: bfebe093-1096-4252-ac05-8e6bab7acd38
-    title: 'Past Events'
-    url: '#pastevents'
