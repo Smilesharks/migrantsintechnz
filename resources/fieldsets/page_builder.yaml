@@ -11,6 +11,12 @@ fields:
       display: 'Page builder'
       button_label: 'Add block'
       sets:
+        call_to_action:
+          display: 'Call to action'
+          instructions: null
+          fields:
+            -
+              import: call_to_action
         full_width_image:
           display: 'Full width image'
           instructions: null

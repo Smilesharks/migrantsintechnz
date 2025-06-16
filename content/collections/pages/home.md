@@ -3,7 +3,7 @@ id: home
 blueprint: page
 title: Home
 updated_by: b702c7e5-e21a-41a0-a013-e48f0ff5b708
-updated_at: 1750045740
+updated_at: 1750053536
 seo_noindex: false
 seo_nofollow: false
 seo_canonical_type: entry
@@ -129,6 +129,10 @@ page_builder:
         enabled: true
     big_image:
       - migrant-tech-group.png
+  -
+    id: mbyooq1a
+    type: call_to_action
+    enabled: true
   -
     id: mb08hw0r
     type: the_directory

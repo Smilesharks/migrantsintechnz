@@ -1,26 +1,47 @@
 {{#
-    @name hero-home
-    @desc The hero-home page builder block.
-    @set page.page_builder.hero_home
+    @name Subscribe
+    @desc
 #}}
 
-<!-- /page_builder/_hero_home.antlers.html -->
-<div class="overflow-hidden">
-	<div class="max-w-6xl px-4 mx-auto lg:px-8 ">
-		<div class="max-w-2xl mx-auto -space-x-24 xl:mx-0 lg:flex xl:max-w-none xl:items-center">
-			<div class="w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
-				<div class="flex flex-col xl:-space-y-12">
-					<h1
-						class="h-auto w-full text-shadow-2xl xl:-mx-4 -mx-2 overflow-visible text-[6rem] leading-[4.5rem] tracking-[-0.5rem] md:text-[16rem] md:leading-[12rem] md:tracking-[-1rem] dark:text-white font-bold uppercase ">
-						{{ title }}
-					</h1>
-					<span class="order-first text-2xl leading-6 tracking-tight text-orange-500 dark:text-orange-500 ">
-						{{ subheader }}
-					</span>
-				</div>
+<!-- /components/_subscribe.antlers.html -->
+<section
+	class="flex items-center w-full p-4 mx-auto overflow-hidden border-b rounded-md sm:p-6 lg:p-8 border-orange-600/20 bg-gradient-to-r dark:border-b dark:border-orange-100/10 dark:from-orange-500/20 dark:to-orange-500/20 from-orange-400/20 to-orange-500/20">
+
+	<div class="grid items-center w-full gap-6 md:gap-12 lg:grid-cols-2">
+		<!-- Content Section -->
+		<div class="space-y-3">
+
+
+			<h1 class="text-3xl font-bold leading-tight dark:text-white text-neutral-800 sm:text-4xl lg:text-4xl">
+				Stay in the Loop
+			</h1>
+			<p class="max-w-md text-lg dark:text-neutral-300 text-neutral-600 text-pretty">
+				Subscribe to our newsletter to get updates on events, community news, and opportunities in Auckland’s
+				tech scene.
+			</p>
+		</div>
+
+		<!-- Visual/Decorative Section -->
+		<div class="items-center justify-center md:relative lg:flex">
+			<div class="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
+
+
+				<form class="flex flex-col justify-center gap-3 md:items-center sm:flex-row">
+					<input type="email" disabled placeholder="Enter your email"
+						class="w-full px-4 py-2 border rounded-lg border-neutral-200 bg-neutral-200 sm:w-auto focus:outline-none focus:ring-2 focus:ring-primary"
+						required />
+					<button type="submit"
+						class="px-6 py-2 transition-colors duration-200 rounded-lg pointer-events-none text-neutral-50 bg-neutral-500 ">
+						Coming soon
+					</button>
+				</form>
+
+				{{# {{ partial:components/button button_type='' type='type' label="Coming Soon	" url="" inverted="false" target_blank="false" }} #}}
 			</div>
-			<div class="flex justify-end max-xl:relative max-xl:hidden sm:justify-start sm:pl-20 lg:pl-0 ">
-				<div class="grid flex-none grid-cols-6 -space-x-6 -space-y-8 -z-10">
+			<div class="absolute right-0 max-md:hidden -z-10">
+				<div class="w-96 h-96"></div>
+				<div
+					class="absolute grid flex-none grid-cols-4 -space-y-20 transform dark:text-neutral-100/10 text-primary/10 -right-24 md:-right-48 -top-48 xl:top-16 floating-shape">
 					<div
 						class="relative size-32 rotate-z-45 rotate-x-45 shadow-2xl dark:shadow-neutral-800/100 shadow-neutral-50/100 bg-gradient-to-l dark:to-orange-500 dark:from-amber-500/0 to-orange-300 from-amber-300/0 ring-8 dark:ring-[#18181A]/0 ring-[#E8E7E8]/0 ">
 					</div>
@@ -79,5 +100,6 @@
 			</div>
 		</div>
 	</div>
-</div>
-<!-- End: /page_builder/_hero_home.antlers.html -->
+</section>
+
+<!-- End: /components/_subscribe.antlers.html -->
