@@ -1,10 +1,10 @@
 {{# @name migrants index @desc The migrants index template. #}}
 <!-- /migrants/index.antlers.html -->
 
-<main class="flex-col max-w-6xl gap-24 py-24 mx-auto lg:flex lg:px-8">
+<main class="flex-col max-w-6xl gap-12 px-4 py-24 mx-auto lg:gap-24 lg:flex lg:px-8">
     {{ partial:components/section_title title="Meet the community" url="true" description="Meet the people who make our community special. The Community Directory showcases migrants in Auckland’s tech sector—from software engineers to UX designers, data analysts, and more. Browse profiles, explore portfolios, and connect directly with fellow members." }}
     {{ collection:migrants sort="date:desc" status:in="published|draft" paginate="true" limit="24" as="items" }}
-        <div class="grid gap-12 lg:grid-cols-4">
+        <div class="grid grid-cols-2 gap-6 lg:gap-12 lg:grid-cols-4">
             {{ unless no_results }}
                 {{ items }}
                     {{ partial:components/person profile="false" }}

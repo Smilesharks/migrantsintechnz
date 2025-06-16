@@ -4,13 +4,13 @@
 #}}
 
 <!-- /layout/_header.antlers.html -->
-{{ collection:events limit="1" }}
+{{ collection:events where="date:>" :where-value="now" limit="1" }}
     <div
         class="border-b border-orange-600/20 bg-gradient-to-r dark:border-b dark:border-orange-100/10 dark:from-orange-500/20 dark:to-orange-500/20 from-orange-400/20 to-orange-500/20">
         <div
             class="relative flex items-center max-w-6xl gap-6 px-3 py-2 mx-auto overflow-hidden text-sm text-neutral-800 max-lg:gap-2 whitespace-nowrap dark:text-neutral-900 text-ellipsis">
             <span
-                class="dark:text-neutral-100 border-2 font-semibold border-orange-200/40 bg-orange-700/40 dark:bg-orange-400/20 dark:border-orange-400/20 max-md:hidden mr-0.5 px-2 py-1 rounded-md rtl:ml-0.5 rtl:mr-0 text-xs text-neutral-800 flex gap-1 font-bold tracking-tight items-center">
+                class="dark:text-neutral-100 border-2 font-semibold border-orange-200/40 bg-orange-700/40 dark:bg-orange-400/20 dark:border-orange-400/20 mr-0.5 px-2 py-1 rounded-md rtl:ml-0.5 rtl:mr-0 text-xs text-neutral-800 flex gap-1 font-bold tracking-tight items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                     class="size-3">
@@ -21,7 +21,7 @@
                     <path d="M4 17v2" />
                     <path d="M5 18H3" />
                 </svg>
-                New Event</span>
+                Next Event</span>
             <a class="flex items-center gap-1 font-medium underline dark:text-orange-500 hover:underline max-lg:text-xs"
                 href="{{ url }}">
                 <svg class="size-3" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
