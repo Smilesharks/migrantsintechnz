@@ -3,7 +3,7 @@ id: b1f8bbe1-fea2-42cb-8e59-0d7ec9d9ca64
 blueprint: events
 title: 'Entrepreneurship & Opportunities!  - February 2025'
 location: 'GridAKL/John Lysaght Auckland'
-url: 'https://events.humanitix.com/migrants-in-tech-entrepreneurship'
+event_url: 'https://events.humanitix.com/migrants-in-tech-entrepreneurship'
 date: '2025-02-26'
 type: Meet-Up
 time_start: '18:00'
@@ -220,5 +220,8 @@ description:
         type: text
         text: "Get in quick, spaces are limited :)\_🚀🚀🚀"
 updated_by: b702c7e5-e21a-41a0-a013-e48f0ff5b708
-updated_at: 1749947433
+updated_at: 1750040908
+ticket_url: 'https://events.humanitix.com/migrants-in-tech-auckland-meet/tickets'
+image: cover.jpg
+size: md
 ---

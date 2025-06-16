@@ -3,7 +3,7 @@ id: c60ed89d-60ea-4f5f-aa98-cd930a1a6c93
 blueprint: events
 title: 'Learning to Earning – Migrants in Tech with AcademyEx & Microsoft (April 30 2025)'
 location: 'GridAKL/John Lysaght Auckland'
-url: 'https://events.humanitix.com/migrants-in-tech-auckland-meet-up-april-2025'
+event_url: 'https://events.humanitix.com/migrants-in-tech-auckland-meet-up-april-2025'
 date: '2025-04-30'
 type: Meet-Up
 time: '18:30'
@@ -42,7 +42,10 @@ description:
         type: text
         text: 'As usual, this event will be casual, fun and family-friendly – a space for you to connect with our awesome migrant community. Pizza and beverages provided!'
 updated_by: b702c7e5-e21a-41a0-a013-e48f0ff5b708
-updated_at: 1747917892
+updated_at: 1750040913
 time_start: '18:30'
 time_end: '20:30'
+ticket_url: 'https://events.humanitix.com/migrants-in-tech-auckland-meet/tickets'
+image: cover.jpg
+size: md
 ---

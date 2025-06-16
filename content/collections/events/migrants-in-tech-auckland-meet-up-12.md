@@ -3,7 +3,7 @@ id: ebd8a0f1-5557-4851-8dd1-c17b94a712b2
 blueprint: events
 title: 'Migrants in Tech Auckland Meet-Up #12'
 location: 'GridAKL/John Lysaght Auckland'
-url: 'https://events.humanitix.com/migrants-in-tech-auckland-meet-up-12'
+event_url: 'https://events.humanitix.com/migrants-in-tech-auckland-meet-up-12'
 ticket_url: 'https://events.humanitix.com/migrants-in-tech-auckland-meet/tickets'
 date: '2024-08-28'
 type: Meet-Up
@@ -120,5 +120,7 @@ description:
         type: text
         text: "Hope to see you there!\_"
 updated_by: b702c7e5-e21a-41a0-a013-e48f0ff5b708
-updated_at: 1749949535
+updated_at: 1750040924
+image: cover.jpg
+size: md
 ---

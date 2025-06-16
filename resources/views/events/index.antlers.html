@@ -1,29 +1,22 @@
 {{#
-	@name Events index
-	@desc The Events index template.
+    @name Events index
+    @desc The Events index template.
 #}}
 
 <!-- /events/index.antlers.html -->
-<main class="outer-grid" id="content">
-    <div class="fluid-container grid md:grid-cols-12 gap-12">
-        {{ collection:events sort="title" paginate="true" limit="10" as="items" }}
+<main class="flex-col max-w-6xl gap-24 px-4 py-24 mx-auto lg:flex lg:px-8">
+    {{ partial:components/section_title title="Past Events" url="true" description="Take a look back at some of our previous events, moments of connection, learning, and celebration within the Migrants in Tech community. From inspiring guest speakers to casual networking over pizza, these gatherings showcase the power of coming together to support each other’s journey in Auckland’s tech world." }}
+    {{ collection:events sort="date:desc" status:in="published|draft" paginate="true" limit="24" as="items" }}
+        <div class="grid gap-12 lg:grid-cols-1">
             {{ unless no_results }}
                 {{ items }}
-                    <div class="md:col-span-6">
-                        <a class="underline" href="{{ url }}">{{ title }}</a>
-                    </div>
+                    {{ partial:components/_event_item }}
                 {{ /items }}
             {{ else }}
-                <div class="md:col-span-6">
-                    {{ trans:strings.no_results }}
-                </div>
+                <div class="md:col-span-6">{{ trans:strings.no_results }}</div>
             {{ /unless }}
-            {{ partial:components/pagination class="md:col-span-12" }}
-        {{ /collection:events }}
-    </div>
-
-    {{ page_builder scope="block" }}
-        {{ partial src="page_builder/{type}" }}
-    {{ /page_builder }}
+        </div>
+        <div class="md:col-span-10 md:col-start-2">{{ partial:components/pagination }}</div>
+    {{ /collection:events }}
 </main>
 <!-- End: /events/index.antlers.html -->
