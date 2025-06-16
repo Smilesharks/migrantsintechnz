@@ -4,41 +4,41 @@
 #}}
 
 <!-- /navigation/_main_mobile.antlers.html -->
-<nav
-    x-data="{ mobileNavOpen: false }"
-    class="md:hidden"
-    aria-label="{{ trans:strings.main_navigation_mobile }}"
-    x-trap.inert.noscroll.noautofocus="mobileNavOpen"
-    @keyup.escape.stop.prevent="mobileNavOpen = false"
-    x-cloak
->
-    <button
-        @click.prevent.stop="mobileNavOpen = !mobileNavOpen"
-        class="fixed bottom-0 right-0 z-30 flex items-center justify-center w-16 h-16 mr-8 text-xs font-bold text-white mb-safe rounded-sm bg-primary"
+<nav x-data="{ mobileNavOpen: false }" class="md:hidden" aria-label="{{ trans:strings.main_navigation_mobile }}"
+    x-trap.inert.noscroll.noautofocus="mobileNavOpen" @keyup.escape.stop.prevent="mobileNavOpen = false" x-cloak>
+
+    <!-- Mobile Menu Toggle Button -->
+    <button @click.prevent.stop="mobileNavOpen = !mobileNavOpen"
+        class="fixed bottom-0 right-0 z-30 flex items-center justify-center w-16 h-16 mr-8 text-xs font-bold text-white rounded-sm mb-safe bg-primary"
         :aria-label="mobileNavOpen ? '{{ trans:strings.nav_close }}' : '{{ trans:strings.nav_open }}'"
         :aria-expanded="mobileNavOpen"
-        x-text="mobileNavOpen ? '{{ trans:strings.close }}' : '{{ trans:strings.menu }}'"
-    ></button>
+        x-text="mobileNavOpen ? '{{ trans:strings.close }}' : '{{ trans:strings.menu }}'"></button>
 
-    <div
-        class="fixed inset-0 z-20 pt-8 px-8 pb-12 flex flex-col justify-end bg-white"
-        x-show="mobileNavOpen"
-        x-transition.origin.bottom.right
-    >
-        <ul class="flex flex-col py-2 gap-y-4 overflow-auto">
+    <!-- Mobile Menu Panel -->
+    <div class="fixed inset-0 z-50 flex flex-col justify-between px-8 pt-8 pb-12 bg-white devs dark:bg-neutral-900"
+        x-show="mobileNavOpen" x-transition.origin.bottom.right>
+
+        <!-- Close Button Header -->
+        <div class="flex items-center justify-end mb-6">
+            <button @click.prevent.stop="mobileNavOpen = false"
+                class="flex items-center justify-center w-10 h-10 -mr-2 transition-colors border-2 rounded-md border-neutral-600 dark:border-neutral-400 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 hover:bg-neutral-100 dark:hover:bg-neutral-800 touch-manipulation"
+                :aria-label="'{{ trans:strings.nav_close ?? "Cerrar menú" }}'" type="button">
+                {{ svg:close class="w-5 h-5 stroke-current" alt="" aria-hidden="true" }}
+            </button>
+        </div>
+
+        <!-- Navigation Menu -->
+        <ul class="flex flex-col gap-y-4">
             {{ nav:main max_depth="2" include_home="true" select="title|url" }}
                 {{ unless no_results }}
-                    <li
-                        {{ if children }}
+                    <li {{ if children }}
                             x-data="{ subnavOpen: $root.querySelector('[aria-current=page]') ? true : false }"
                             @focusin.window="!$refs.subnav.contains($event.target) && (subnavOpen = false)"
                         {{ /if }}
-                        class="leading-none"
-                    >
-                        <a
-                            class="
+                        class="leading-none">
+                        <a class="
                                 w-full py-2 flex items-center gap-x-1 text-lg font-bold hover:text-primary
-                                {{ is_current || is_parent ? 'text-primary' : 'text-neutral' }}
+                                {{ is_current || is_parent ? 'text-primary' : 'text-neutral dark:text-neutral-200' }}
                             "
                             {{ if children }}
                                 href="#"
@@ -48,35 +48,26 @@
                                 :aria-expanded="subnavOpen"
                             {{ else }}
                                 href="{{ url }}"
+                                @click="mobileNavOpen = false"
                             {{ /if }}
-                            {{ is_current ?= 'aria-current="page"' }}
-                        >
+                            {{ is_current ?= 'aria-current="page"' }}>
                             <span>{{ title }}</span>
-
                             {{ if children }}
                                 <div :class="{ 'scale-y-[-1]': subnavOpen }" class="motion-safe:transition-transform">
-                                    {{ svg:chevron_down attr:class="w-2 ml-1 overflow-visible stroke-current text-neutral" attr:aria-hidden="true" }}
+                                    {{ svg:chevron_down attr:class="w-2 ml-1 overflow-visible stroke-current text-neutral dark:text-neutral-200" attr:aria-hidden="true" }}
                                 </div>
                             {{ /if }}
                         </a>
-
                         {{ if children }}
-                            <ul
-                                x-show="subnavOpen"
-                                x-ref="subnav"
-                                class="flex flex-col items-stretch gap-y-2"
-                                x-collapse
-                            >
+                            <ul x-show="subnavOpen" x-ref="subnav" class="flex flex-col items-stretch gap-y-2"
+                                x-collapse>
                                 {{ children }}
                                     <li class="{{ first ?= 'mt-2' }}">
-                                        <a
-                                            class="
+                                        <a class="
                                                 block py-2 whitespace-nowrap font-bold hover:text-primary
-                                                {{ is_current || is_parent ? 'text-primary' : 'text-neutral' }}
-                                            "
-                                            href="{{ url }}"
-                                            {{ is_current ?= 'aria-current="page"' }}
-                                        >
+                                                {{ is_current || is_parent ? 'text-primary' : 'text-neutral dark:text-neutral-200' }}
+                                            " href="{{ url }}" {{ is_current ?= 'aria-current="page"' }}
+                                            @click="mobileNavOpen = false">
                                             {{ title }}
                                         </a>
                                     </li>
@@ -86,7 +77,11 @@
                     </li>
                 {{ /unless }}
             {{ /nav:main }}
+
+            <!-- Theme Toggle -->
+            <li>{{ partial:components/theme_toggle }}</li>
         </ul>
+
     </div>
 </nav>
 <!-- End: /navigation/_main_mobile.antlers.html -->

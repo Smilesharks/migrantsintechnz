@@ -1,48 +1,91 @@
 {{#
-    @name Theme toggle
-    @desc The theme toggle component for class based dark mode. To enable this do the following:
+    @name Theme toggle (Mobile Horizontal Toggle)
+    @desc The mobile responsive theme toggle component with horizontal toggle for mobile and dropdown for desktop. To enable this do the following:
     1. Uncomment `darkMode: 'class'` in `tailwind.config.js`.
-    2. Add `{{ partial:components/theme_toggle }}` as the last list item in the main ul in `resources/views/navigation/_main_desktop.antlers.html`. The `section:theme_toggle` is automatically yielded in `resources/views/snippets/_browser_appearance.antlers.html`.
+    2. Add `{{ partial:components/theme_toggle_mobile }}` as the last list item in the main ul in `resources/views/navigation/_main_desktop.antlers.html`. The `section:theme_toggle` is automatically yielded in `resources/views/snippets/_browser_appearance.antlers.html`.
 #}}
 
-<!-- /components/_theme_toggle.antlers.html -->
-<li x-data="themeToggle" x-bind="root" class="relative z-20 isolate" x-cloak>
+<!-- /components/_theme_toggle_mobile.antlers.html -->
+<li x-data="themeToggleMobile" x-bind="root" class="relative z-20 isolate" x-cloak>
+
+    <!-- Mobile Horizontal Toggle - Visible on small screens -->
+    <div
+        class="flex p-1 border rounded-lg sm:hidden bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700">
+        {{ mobile_button_classes = 'flex items-center justify-center px-3 py-2 rounded-md text-xs font-medium transition-all duration-200 touch-manipulation min-w-0 flex-1' }}
+        {{ mobile_icon_classes = 'w-4 h-4 stroke-current overflow-visible' }}
+        <!-- Light Theme Button (Mobile) -->
+        <button @click="themeLight()" :class="{ 
+                'bg-white dark:bg-neutral-700 text-amber-500 shadow-sm': $store.theme.get() === 'light',
+                'text-neutral-600 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200': $store.theme.get() !== 'light'
+            }" aria-label="{{ trans:strings.theme_toggle_light }}" class="{{ mobile_button_classes }}">
+            {{ svg:sun class="{mobile_icon_classes}" alt="" aria-hidden="true" }}
+        </button>
+
+        <!-- Dark Theme Button (Mobile) -->
+        <button @click="themeDark()" :class="{ 
+                'bg-white dark:bg-neutral-700 text-amber-500 shadow-sm': $store.theme.get() === 'dark',
+                'text-neutral-600 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200': $store.theme.get() !== 'dark'
+            }" aria-label="{{ trans:strings.theme_toggle_dark }}" class="{{ mobile_button_classes }}">
+            {{ svg:moon class="{mobile_icon_classes}" alt="" aria-hidden="true" }}
+        </button>
+
+        <!-- System Theme Button (Mobile) -->
+        <button @click="themeSystem()" :class="{ 
+                'bg-white dark:bg-neutral-700 text-amber-500 shadow-sm': $store.theme.get() === 'system',
+                'text-neutral-600 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200': $store.theme.get() !== 'system'
+            }" aria-label="{{ trans:strings.theme_toggle_system }}" class="{{ mobile_button_classes }}">
+            <div class="relative">
+                {{ svg:cog x-show="preferredColorScheme === 'light'" class="{mobile_icon_classes}" alt="" aria-hidden="true" }}
+                {{ svg:cog x-show="preferredColorScheme === 'dark'" class="{mobile_icon_classes}" alt="" aria-hidden="true" }}
+            </div>
+        </button>
+    </div>
+
+    <!-- Desktop Dropdown Toggle - Hidden on small screens -->
     <button x-bind="toggle"
-        class="flex items-center p-1 -m-1 text-neutral-800 dark:text-neutral-200 hover:text-amber-500 dark:hover:text-amber-500 focus:outline-none focus-visible:ring-2 ring-primary motion-safe:transition-colors">
-        {{ icon_classes = 'w-4 h-4 stroke-current overflow-visible' }}
+        class="items-center hidden p-1 -m-1 sm:flex text-neutral-800 dark:text-neutral-200 hover:text-amber-500 dark:hover:text-amber-500 focus:outline-none focus-visible:ring-2 ring-primary motion-safe:transition-colors">
+        {{ desktop_icon_classes = 'w-4 h-4 stroke-current overflow-visible' }}
         <div x-show="$store.theme.get() === 'light'">
-            {{ svg:sun class="{icon_classes}" alt="" aria-hidden="true" }}
+            {{ svg:sun class="{desktop_icon_classes}" alt="" aria-hidden="true" }}
         </div>
         <div x-show="$store.theme.get() === 'dark'">
-            {{ svg:moon class="{icon_classes}" alt="" aria-hidden="true" }}
+            {{ svg:moon class="{desktop_icon_classes}" alt="" aria-hidden="true" }}
         </div>
         <div x-show="$store.theme.get() === 'system'">
-            {{ svg:sun x-show="preferredColorScheme === 'light'" class="{icon_classes} opacity-50" alt="" aria-hidden="true" }}
-            {{ svg:moon x-show="preferredColorScheme === 'dark'" class="{icon_classes} opacity-50" alt="" aria-hidden="true" }}
+            {{ svg:sun x-show="preferredColorScheme === 'light'" class="{desktop_icon_classes} opacity-50" alt="" aria-hidden="true" }}
+            {{ svg:moon x-show="preferredColorScheme === 'dark'" class="{desktop_icon_classes} opacity-50" alt="" aria-hidden="true" }}
         </div>
     </button>
+
+    <!-- Desktop Dropdown Panel - Hidden on small screens -->
     <div x-bind="panel" x-ref="panel"
-        class="absolute right-0 px-3 py-2 mt-2 -ml-3 bg-white border rounded shadow dark:bg-neutral-800 border-neutral-900/10 dark:border-neutral-100/10">
-        {{ button_classes = 'py-2 px-1 -mx-1 flex items-center space-x-2 hover:text-amber-500 focus:outline-none focus-visible:ring-2 ring-primary motion-safe:transition-colors' }}
-        {{ icon_classes = 'w-4 h-4 stroke-current overflow-visible' }}
-        {{ label_classes = 'text-xs font-bold' }}
+        class="absolute right-0 hidden px-3 py-2 mt-2 -ml-3 bg-white border rounded shadow sm:block dark:bg-neutral-800 border-neutral-900/10 dark:border-neutral-100/10">
+
+        {{ desktop_button_classes = 'py-2 px-1 -mx-1 flex items-center space-x-2 hover:text-amber-500 focus:outline-none focus-visible:ring-2 ring-primary motion-safe:transition-colors' }}
+        {{ desktop_icon_classes = 'w-4 h-4 stroke-current overflow-visible' }}
+        {{ desktop_label_classes = 'text-xs font-bold' }}
+        <!-- Light Theme Button (Desktop) -->
         <button @click="themeLight()" :class="{ 'text-amber-500': $store.theme.get() === 'light' }"
             aria-label="{{ trans:strings.theme_toggle_light }}" title="{{ trans:strings.theme_toggle_light }}"
-            class="{{ button_classes }}">
-            {{ svg:sun class="{icon_classes}" alt="" aria-hidden="true" }}
-            <span class="{{ label_classes }}">{{ trans:strings.theme_toggle_light_short }}</span>
+            class="{{ desktop_button_classes }}">
+            {{ svg:sun class="{desktop_icon_classes}" alt="" aria-hidden="true" }}
+            <span class="{{ desktop_label_classes }}">{{ trans:strings.theme_toggle_light_short }}</span>
         </button>
+
+        <!-- Dark Theme Button (Desktop) -->
         <button @click="themeDark()" :class="{ 'text-amber-500': $store.theme.get() === 'dark' }"
             aria-label="{{ trans:strings.theme_toggle_dark }}" title="{{ trans:strings.theme_toggle_dark }}"
-            class="{{ button_classes }}">
-            {{ svg:moon class="{icon_classes}" alt="" aria-hidden="true" }}
-            <span class="{{ label_classes }}">{{ trans:strings.theme_toggle_dark_short }}</span>
+            class="{{ desktop_button_classes }}">
+            {{ svg:moon class="{desktop_icon_classes}" alt="" aria-hidden="true" }}
+            <span class="{{ desktop_label_classes }}">{{ trans:strings.theme_toggle_dark_short }}</span>
         </button>
+
+        <!-- System Theme Button (Desktop) -->
         <button @click="themeSystem()" :class="{ 'text-amber-500': $store.theme.get() === 'system' }"
             aria-label="{{ trans:strings.theme_toggle_system }}" title="{{ trans:strings.theme_toggle_system }}"
-            class="{{ button_classes }}">
-            {{ svg:cog class="{icon_classes}" alt="" aria-hidden="true" }}
-            <span class="{{ label_classes }}">{{ trans:strings.theme_toggle_system_short }}</span>
+            class="{{ desktop_button_classes }}">
+            {{ svg:cog class="{desktop_icon_classes}" alt="" aria-hidden="true" }}
+            <span class="{{ desktop_label_classes }}">{{ trans:strings.theme_toggle_system_short }}</span>
         </button>
     </div>
 
@@ -62,23 +105,30 @@
                 }
             })
 
-            Alpine.data('themeToggle', () => {
+            Alpine.data('themeToggleMobile', () => {
                 return {
                     themeToggleOpen: false,
                     preferredColorScheme: window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light',
                     themeColor: {{ theme_color ?? 'false' }},
+                    
                     themeLight: function() {
                         this.$store.theme.set('light')
                         this.setLightTheme()
+                        // Close desktop dropdown if open
+                        this.themeToggleOpen = false
                     },
                     themeDark: function() {
                         this.$store.theme.set('dark')
                         this.setDarkTheme()
+                        // Close desktop dropdown if open
+                        this.themeToggleOpen = false
                     },
                     themeSystem: function() {
                         this.$store.theme.set('system')
                         window.matchMedia('(prefers-color-scheme: light)').matches && this.setLightTheme()
                         window.matchMedia('(prefers-color-scheme: dark)').matches && this.setDarkTheme()
+                        // Close desktop dropdown if open
+                        this.themeToggleOpen = false
                     },
                     setLightTheme: function() {
                         document.documentElement.classList.remove('dark')
@@ -90,17 +140,33 @@
                     },
                     root: {
                         ['x-init']() {
+                            // Listen for color scheme changes
                             window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-                                e.matches
-                                    ? (this.preferredColorScheme = 'dark', this.setDarkTheme())
-                                    : (this.preferredColorScheme = 'light', this.setLightTheme())
+                                this.preferredColorScheme = e.matches ? 'dark' : 'light'
+                                // Update theme if set to system
+                                if (this.$store.theme.get() === 'system') {
+                                    e.matches ? this.setDarkTheme() : this.setLightTheme()
+                                }
                             })
+                            
+                            // Initialize theme on load
+                            const currentTheme = this.$store.theme.get()
+                            if (currentTheme === 'system') {
+                                window.matchMedia('(prefers-color-scheme: dark)').matches ? this.setDarkTheme() : this.setLightTheme()
+                            } else if (currentTheme === 'dark') {
+                                this.setDarkTheme()
+                            } else {
+                                this.setLightTheme()
+                            }
                         },
                         ['@keyup.escape.stop.prevent']() {
                             this.themeToggleOpen = false
                         },
                         ['@focusin.window']() {
-                            !this.$refs.panel.contains(this.$event.target) && (this.themeToggleOpen = false)
+                            // Only close dropdown on desktop
+                            if (window.innerWidth >= 640) {
+                                !this.$refs.panel?.contains(this.$event.target) && (this.themeToggleOpen = false)
+                            }
                         },
                     },
                     toggle: {
@@ -109,8 +175,8 @@
                         },
                         [':aria-label']() {
                             return this.themeToggleOpen
-                                ? '{{ trans:strings.theme_toggle_toggle_close }}'
-                                : '{{ trans:strings.theme_toggle_toggle_open }}'
+                                ? '{{ trans:strings.theme_toggle_toggle_close ?? "Cerrar selector de tema" }}'
+                                : '{{ trans:strings.theme_toggle_toggle_open ?? "Abrir selector de tema" }}'
                         },
                         [':aria-expanded']() {
                             return this.themeToggleOpen
@@ -129,7 +195,7 @@
                         [':id']() {
                             return this.$id('dropdown-button')
                         },
-                        ['x-transition']() {
+                        ['x-transition.opacity.duration.150ms']() {
                         }
                     }
                 }
@@ -137,11 +203,11 @@
         })
     </script>
 </li>
-<!-- End: /components/_theme_toggle.antlers.html -->
+<!-- End: /components/_theme_toggle_mobile.antlers.html -->
 
 {{# The script for setting the correct theme on page load. Yielded in `resources/views/snippets/_browser_appearance.antlers.html`. #}}
 {{ section:theme_toggle }}
-    <!-- /components/_theme_toggle.antlers.html -->
+    <!-- /components/_theme_toggle_mobile.antlers.html -->
     {{# We can't use Alpine logic here since this has to run before anything else. #}}
     <script>
         {{# Set light theme. #}}
@@ -160,12 +226,22 @@
             {{ /if }}
         }
 
-        {{# Set theme on page load. #}}
-        (localStorage.theme === '"dark"' || ((localStorage.theme === '"system"') && window.matchMedia('(prefers-color-scheme: dark)').matches)) ? setThemeDark() : setThemeLight()
+        {{# Set theme on page load with mobile optimization. #}}
+        const savedTheme = localStorage.theme
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+        
+        if (savedTheme === '"dark"' || ((!savedTheme || savedTheme === '"system"') && prefersDark)) {
+            setThemeDark()
+        } else {
+            setThemeLight()
+        }
 
-        {{# Use preferred color scheme when theme is set to system or on first load. #}}
-        window.matchMedia('(prefers-color-scheme: light)').matches && (!localStorage.theme || localStorage.theme === '"system"') && setThemeLight()
-        window.matchMedia('(prefers-color-scheme: dark)').matches && (!localStorage.theme || localStorage.theme === '"system"') && setThemeDark()
+        {{# Listen for system theme changes when theme is set to system. #}}
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            if (!localStorage.theme || localStorage.theme === '"system"') {
+                e.matches ? setThemeDark() : setThemeLight()
+            }
+        })
     </script>
-    <!-- End: /components/_theme_toggle.antlers.html -->
+    <!-- End: /components/_theme_toggle_mobile.antlers.html -->
 {{ /section:theme_toggle }}
