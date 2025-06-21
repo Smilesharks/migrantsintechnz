@@ -35,8 +35,8 @@
                 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200': $store.theme.get() !== 'system'
             }" aria-label="{{ trans:strings.theme_toggle_system }}" class="{{ mobile_button_classes }}">
             <div class="relative">
-                {{ svg:cog x-show="preferredColorScheme === 'light'" class="{mobile_icon_classes}" alt="" aria-hidden="true" }}
-                {{ svg:cog x-show="preferredColorScheme === 'dark'" class="{mobile_icon_classes}" alt="" aria-hidden="true" }}
+                {{ svg:cog x-show="$store.colorScheme.preferred === 'light'" class="{mobile_icon_classes}" alt="" aria-hidden="true" }}
+                {{ svg:cog x-show="$store.colorScheme.preferred === 'dark'" class="{mobile_icon_classes}" alt="" aria-hidden="true" }}
             </div>
         </button>
     </div>
@@ -52,8 +52,8 @@
             {{ svg:moon class="{desktop_icon_classes}" alt="" aria-hidden="true" }}
         </div>
         <div x-show="$store.theme.get() === 'system'">
-            {{ svg:sun x-show="preferredColorScheme === 'light'" class="{desktop_icon_classes} opacity-50" alt="" aria-hidden="true" }}
-            {{ svg:moon x-show="preferredColorScheme === 'dark'" class="{desktop_icon_classes} opacity-50" alt="" aria-hidden="true" }}
+            {{ svg:sun x-show="$store.colorScheme.preferred === 'light'" class="{desktop_icon_classes} opacity-50" alt="" aria-hidden="true" }}
+            {{ svg:moon x-show="$store.colorScheme.preferred === 'dark'" class="{desktop_icon_classes} opacity-50" alt="" aria-hidden="true" }}
         </div>
     </button>
 
