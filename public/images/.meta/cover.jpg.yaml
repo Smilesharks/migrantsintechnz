@@ -1,4 +1,6 @@
-data: {  }
+data:
+  alt: 'Migrants In Tech Team photo'
+  exempt_from_alt: false
 size: 631025
 last_modified: 1750037240
 width: 1920

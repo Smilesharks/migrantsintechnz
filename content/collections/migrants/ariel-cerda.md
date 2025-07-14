@@ -7,7 +7,7 @@ link: "https://www.arielcerda.com/"
 email: arielcerdahernandez@gmail.com
 updated_by: b702c7e5-e21a-41a0-a013-e48f0ff5b708
 updated_at: 1749960462
-location: 'Auckland\t- Tāmaki Makaurau'
+location: "Auckland\t- Tāmaki Makaurau"
 image: migrants/gptstyle-(1).png
 size: md
 tags: "UI/UX Design"

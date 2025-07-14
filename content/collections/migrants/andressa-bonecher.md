@@ -6,7 +6,7 @@ position: "UX/UI"
 link: "https://www.linkedin.com/in/abonecher/"
 email: andressabonecher@gmail.com
 tags: "UI/UX Design"
-location: 'Auckland\t- Tāmaki Makaurau'
+location: "Auckland\t- Tāmaki Makaurau"
 image: migrants/andressa.jpg
 updated_at: 1744231500
 ---
