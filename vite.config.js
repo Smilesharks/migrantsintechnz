@@ -12,6 +12,9 @@ export default defineConfig(({ command, mode }) => {
                 },
             },
         },
+        css: {
+            devSourcemap: true,
+        },
         plugins: [
             tailwindcss(),
             laravel({
