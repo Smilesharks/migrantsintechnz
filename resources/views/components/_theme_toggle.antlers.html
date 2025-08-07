@@ -46,7 +46,10 @@
     </div>
 
     <!-- Desktop Dropdown Toggle - Hidden on small screens -->
-    <button x-bind="toggle"
+    <button @click.prevent="themeToggleOpen = !themeToggleOpen"
+        :aria-label="themeToggleOpen ? '{{ trans:strings.theme_toggle_toggle_close ?? 'Cerrar selector de tema' }}' : '{{ trans:strings.theme_toggle_toggle_open ?? 'Abrir selector de tema' }}'"
+        :aria-expanded="themeToggleOpen"
+        :aria-controls="$id('dropdown-button')"
         class="items-center hidden p-1 -m-1 sm:flex text-neutral-800 dark:text-neutral-200 hover:text-amber-500 dark:hover:text-amber-500 focus:outline-none focus-visible:ring-2 ring-primary motion-safe:transition-colors">
         {{ desktop_icon_classes = 'w-4 h-4 stroke-current overflow-visible' }}
         <div x-show="$store.theme.get() === 'light'">
@@ -182,22 +185,6 @@
                                     .themeToggleOpen = false)
                             }
                         },
-                    },
-                    toggle: {
-                        ['@click.prevent']() {
-                            this.themeToggleOpen = !this.themeToggleOpen
-                        },
-                        [':aria-label']() {
-                            return this.themeToggleOpen ?
-                                '{{ trans:strings.theme_toggle_toggle_close ?? "Cerrar selector de tema" }}' :
-                                '{{ trans:strings.theme_toggle_toggle_open ?? "Abrir selector de tema" }}'
-                        },
-                        [':aria-expanded']() {
-                            return this.themeToggleOpen
-                        },
-                        [':aria-controls']() {
-                            return this.$id('dropdown-button')
-                        }
                     },
                     panel: {
                         ['x-show']() {
