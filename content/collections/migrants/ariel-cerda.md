@@ -10,6 +10,7 @@ updated_at: 1749960462
 location: "Auckland\t- Tāmaki Makaurau"
 image: migrants/gptstyle-(1).png
 size: md
-tags: "UI/UX Design"
+tags:
+  - ui_ux_design
 caption: "Ariel Cerda"
 ---

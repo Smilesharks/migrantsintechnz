@@ -5,7 +5,9 @@ title: "Hoa Diem Chu"
 position: "Software Engineer"
 link: "https://github.com/hoadc1205"
 email: hoadc.1205@gmail.com
-tags: "Back-end, Database Management"
+tags:
+  - backend
+  - database_management
 location: "Auckland\t- Tāmaki Makaurau"
 image: migrants/hoachu.jpg
 updated_by: b702c7e5-e21a-41a0-a013-e48f0ff5b708

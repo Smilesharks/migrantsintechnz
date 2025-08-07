@@ -63,7 +63,21 @@
                 {{ tags }}
                     <span
                         class="inline-flex items-center px-2 py-1 text-xs rounded-md bg-neutral-50 text-neutral-800 ring-1 ring-neutral-600/20 ring-inset dark:bg-neutral-800 dark:text-neutral-300 dark:ring-neutral-400/20">
-                        {{ value | trim }}
+                        {{ if value === 'developer' }}Developer
+                        {{ elseif value === 'frontend' }}Front-end
+                        {{ elseif value === 'software_engineering' }}Software Engineering
+                        {{ elseif value === 'designer' }}Designer
+                        {{ elseif value === 'ui_ux_design' }}UI/UX Design
+                        {{ elseif value === 'mobile_development' }}Mobile Development
+                        {{ elseif value === 'machine_learning' }}Machine Learning
+                        {{ elseif value === 'full_stack' }}Full Stack
+                        {{ elseif value === 'tech_ambassador' }}Tech Ambassador
+                        {{ elseif value === 'project_management' }}Project Management
+                        {{ elseif value === 'backend' }}Back-end
+                        {{ elseif value === 'database_management' }}Database Management
+                        {{ elseif value === 'cto' }}CTO
+                        {{ else }}Other
+                        {{ /if }}
                     </span>
                 {{ /tags }}
             </div>

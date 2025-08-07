@@ -5,7 +5,9 @@ title: "Pablo Huusmann"
 position: "Software Engineer"
 link: "https://github.com/HuusmannPablo"
 email: huusmannpablo@gmail.com
-tags: "Full stack, Software Engineering"
+tags:
+  - full_stack
+  - software_engineering
 location: "Auckland\t- Tāmaki Makaurau"
 image: migrants/pablo.jpg
 updated_by: b702c7e5-e21a-41a0-a013-e48f0ff5b708

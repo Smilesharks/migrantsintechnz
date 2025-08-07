@@ -3,10 +3,8 @@ tabs:
   main:
     display: Main
     sections:
-      -
-        fields:
-          -
-            handle: title
+      - fields:
+          - handle: title
             field:
               type: text
               required: true
@@ -15,55 +13,83 @@ tabs:
               display: Title
               validate:
                 - required
-          -
-            import: image
-          -
-            handle: link
+          - import: image
+          - handle: link
             field:
               type: link
-              display: link
+              display: Link
               width: 33
-          -
-            handle: email
+              default: url
+          - handle: email
             field:
               input_type: email
               type: text
               display: Email
               width: 33
-          -
-            handle: position
+          - handle: position
             field:
               type: text
               display: Position
               width: 33
-          -
-            handle: tags
+          - handle: tags
             field:
               type: select
               display: Tags
               width: 33
-          -
-            handle: location
+              multiple: true
+              options:
+                developer: Developer
+                frontend: Front-end
+                software_engineering: Software Engineering
+                designer: Designer
+                ui_ux_design: UI/UX Design
+                mobile_development: Mobile Development
+                machine_learning: Machine Learning
+                full_stack: Full Stack
+                tech_ambassador: Tech Ambassador
+                project_management: Project Management
+                backend: Back-end
+                database_management: Database Management
+                cto: CTO
+                other: Other
+          - handle: location
             field:
               type: select
               display: Location
               width: 33
+              options:
+                northland: "Northland - Te Tai Tokerau"
+                auckland: "Auckland - Tāmaki Makaurau"
+                waikato: "Waikato - Waikato"
+                bay_of_plenty: "Bay of Plenty - Te Moana-a-Toi"
+                gisborne: "Gisborne - Te Tairāwhiti"
+                hawkes_bay: "Hawke's Bay - Te Matau-a-Māui"
+                taranaki: "Taranaki - Taranaki"
+                manawatu_whanganui: "Manawatū-Whanganui - Manawatū-Whanganui"
+                wellington: "Wellington - Te Whanganui-a-Tara"
+                tasman: "Tasman - Te Tai o Aorere"
+                nelson: "Nelson - Whakatū"
+                marlborough: "Marlborough - Te Tauihu-o-te-waka"
+                west_coast: "West Coast - Te Tai Poutini"
+                canterbury: "Canterbury - Waitaha"
+                otago: "Otago - Ōtākou"
+                southland: "Southland - Murihiku"
+                chatham_islands: "Chatham Islands - Wharekauri / Rēkohu"
   sidebar:
     display: Sidebar
     sections:
-      -
-        fields:
-          -
-            handle: meta
+      - fields:
+          - handle: meta
             field:
               type: section
               instructions: "This entry's meta data."
               display: Meta
-          -
-            handle: slug
+          - handle: slug
             field:
               type: slug
               localizable: true
+              generate: true
+              from: title
               validate:
                 - required
               display: Slug

@@ -5,7 +5,8 @@ title: "Dario Javier Bazan"
 position: "UX/UI Designer"
 link: "https://www.dariobazan.com"
 email: dadabazan@gmail.com
-tags: "UI/UX Design"
+tags:
+  - ui_ux_design
 location: "Auckland\t- Tāmaki Makaurau"
 image: migrants/dario.png
 updated_by: b702c7e5-e21a-41a0-a013-e48f0ff5b708

@@ -5,7 +5,8 @@ title: "Gustavo Fernando Bernardo"
 position: "SQL Database Administrator"
 link: "https://www.linkedin.com/in/gustavobernardo1993/"
 email: arivasg@outlook.com
-tags: "Database Management"
+tags:
+  - database_management
 location: "Auckland\t- Tāmaki Makaurau"
 image: migrants/1662971637242.jpg
 updated_at: 1744231500

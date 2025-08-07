@@ -5,7 +5,8 @@ title: "Alex Rivas"
 position: "Insights Analyst"
 link: "https://www.linkedin.com/in/arivasg/"
 email: arivasg@outlook.com
-tags: "Insights Analyst"
+tags:
+  - other
 location: "Auckland\t- Tāmaki Makaurau"
 image: migrants/20250615_191644-edit.jpg
 updated_at: 1744231500

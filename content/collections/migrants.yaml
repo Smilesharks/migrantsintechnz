@@ -1,5 +1,5 @@
 title: Migrants
-route: "no"
+# route: "no"  # Comenta esta línea completamente
 layout: layout
 template: migrants/show
 revisions: false
@@ -8,4 +8,4 @@ sort_dir: asc
 date_behavior:
   past: public
   future: private
-mount: 849e2c98-92b2-40cf-881a-ef509cf57806
+mount: 849e2c98-92b2-40cf-881a-ef509cf57806 # Comenta el mount también
