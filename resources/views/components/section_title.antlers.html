@@ -7,9 +7,11 @@
         <div class="space-y-6">
             <p class="text-lg text-pretty dark:text-neutral-400 text-neutral-600">{{ description | strip_tags:p }}</p>
             {{ if event }}
-                {{ collection:events limit="1" }}
+                {{ collection:events limit="1" sort="date:desc" }}
                     <div class="flex gap-2">
-                        {{ partial:components/button button_type='button' label="Get Tickets" :url="ticket_url" target_blank="true" }}
+                        {{ if date >= now }}
+                            {{ partial:components/button button_type='button' label="Get Tickets" :url="ticket_url" target_blank="true" }}
+                        {{ /if }}
                         {{ partial:components/button button_type='secondary' label="View more" :url="url" target_blank="false" }}
                     </div>
                 {{ /collection:events }}
