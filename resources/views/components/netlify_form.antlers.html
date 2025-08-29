@@ -1,0 +1,186 @@
+{{#
+    @name Netlify Form
+    @desc A Netlify form component based on migrants form fields
+#}}
+
+<!-- /components/netlify_form.antlers.html -->
+<section class="flex-col max-w-4xl gap-24 pt-12 mx-auto lg:flex lg:px-8">
+    {{ partial:components/section_title title="Join the Directory s" url="true" description="Add your profile to the Migrants in Tech Directory and help build a more connected community. Share your name, professional title, photo, and a link to your portfolio or LinkedIn so others can discover your work, reach out, and be inspired by your journey." }}
+</section>
+
+<section id="migrantform" class="max-w-4xl px-4 mx-auto md:px-6 text-neutral dark:text-neutral">
+    <form name="migrants-registration" method="POST" data-netlify="true" netlify-honeypot="bot-field"
+        class="netlify-form">
+        <!-- Honeypot field for spam protection -->
+        <p class="hidden">
+            <label>
+                Don't fill this out if you're human: <input name="bot-field" />
+            </label>
+        </p>
+
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+            <!-- Title -->
+            <div class="form-group">
+                <label for="title" class="block mb-1 text-sm font-medium text-gray-800 dark:text-gray-200">
+                    Title
+                </label>
+                <div class="relative">
+                    <input type="text" id="title" name="title"
+                        class="w-full px-4 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent dark:bg-gray-800 dark:border-gray-600 dark:text-gray-200">
+                </div>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+                <label for="email" class="block mb-1 text-sm font-medium text-gray-800 dark:text-gray-200">
+                    What is your email address?
+                </label>
+                <div class="relative">
+                    <input type="email" id="email" name="email" required
+                        class="w-full px-4 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent dark:bg-gray-800 dark:border-gray-600 dark:text-gray-200">
+                </div>
+            </div>
+
+            <!-- Website Links -->
+            <div class="form-group">
+                <label for="website_links" class="block mb-1 text-sm font-medium text-gray-800 dark:text-gray-200">
+                    Website/Github/Linkedin
+                </label>
+                <div class="relative">
+                    <input type="text" id="website_links" name="website_links"
+                        class="w-full px-4 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent dark:bg-gray-800 dark:border-gray-600 dark:text-gray-200">
+                </div>
+                <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Share your professional links</p>
+            </div>
+
+            <!-- Tags -->
+            <div class="form-group">
+                <label class="block mb-1 text-sm font-medium text-gray-800 dark:text-gray-200">
+                    Tags
+                </label>
+                <div class="grid grid-cols-2 gap-2">
+                    <label class="flex items-center">
+                        <input type="checkbox" name="tags" value="developer" class="mr-2 text-orange-500">
+                        <span class="text-sm">Developer</span>
+                    </label>
+                    <label class="flex items-center">
+                        <input type="checkbox" name="tags" value="frontend" class="mr-2 text-orange-500">
+                        <span class="text-sm">Front-end</span>
+                    </label>
+                    <label class="flex items-center">
+                        <input type="checkbox" name="tags" value="software_engineering" class="mr-2 text-orange-500">
+                        <span class="text-sm">Software Engineering</span>
+                    </label>
+                    <label class="flex items-center">
+                        <input type="checkbox" name="tags" value="designer" class="mr-2 text-orange-500">
+                        <span class="text-sm">Designer</span>
+                    </label>
+                    <label class="flex items-center">
+                        <input type="checkbox" name="tags" value="ui_ux_design" class="mr-2 text-orange-500">
+                        <span class="text-sm">UI/UX Design</span>
+                    </label>
+                    <label class="flex items-center">
+                        <input type="checkbox" name="tags" value="mobile_development" class="mr-2 text-orange-500">
+                        <span class="text-sm">Mobile Development</span>
+                    </label>
+                    <label class="flex items-center">
+                        <input type="checkbox" name="tags" value="machine_learning" class="mr-2 text-orange-500">
+                        <span class="text-sm">Machine Learning</span>
+                    </label>
+                    <label class="flex items-center">
+                        <input type="checkbox" name="tags" value="full_stack" class="mr-2 text-orange-500">
+                        <span class="text-sm">Full stack</span>
+                    </label>
+                    <label class="flex items-center">
+                        <input type="checkbox" name="tags" value="tech_ambassador" class="mr-2 text-orange-500">
+                        <span class="text-sm">Tech ambassador</span>
+                    </label>
+                    <label class="flex items-center">
+                        <input type="checkbox" name="tags" value="project_management" class="mr-2 text-orange-500">
+                        <span class="text-sm">Project Management</span>
+                    </label>
+                    <label class="flex items-center">
+                        <input type="checkbox" name="tags" value="backend" class="mr-2 text-orange-500">
+                        <span class="text-sm">Back-end</span>
+                    </label>
+                    <label class="flex items-center">
+                        <input type="checkbox" name="tags" value="database_management" class="mr-2 text-orange-500">
+                        <span class="text-sm">Database Management</span>
+                    </label>
+                    <label class="flex items-center">
+                        <input type="checkbox" name="tags" value="cto" class="mr-2 text-orange-500">
+                        <span class="text-sm">CTO</span>
+                    </label>
+                    <label class="flex items-center">
+                        <input type="checkbox" name="tags" value="other" class="mr-2 text-orange-500">
+                        <span class="text-sm">Other</span>
+                    </label>
+                </div>
+                <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Select up to 2 options</p>
+            </div>
+
+            <!-- Location -->
+            <div class="form-group md:col-span-2">
+                <label for="location" class="block mb-1 text-sm font-medium text-gray-800 dark:text-gray-200">
+                    Location
+                </label>
+                <div class="relative">
+                    <select id="location" name="location" required
+                        class="w-full px-4 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent dark:bg-gray-800 dark:border-gray-600 dark:text-gray-200">
+                        <option value="">Select your location</option>
+                        <option value="northland">Northland - Te Tai Tokerau</option>
+                        <option value="auckland">Auckland - Tāmaki Makaurau</option>
+                        <option value="waikato">Waikato - Waikato</option>
+                        <option value="bay_of_plenty">Bay of Plenty - Te Moana-a-Toi</option>
+                        <option value="gisborne">Gisborne - Te Tairāwhiti</option>
+                        <option value="hawkes_bay">Hawke's Bay - Te Matau-a-Māui</option>
+                        <option value="taranaki">Taranaki - Taranaki</option>
+                        <option value="manawatu_whanganui">Manawatū-Whanganui - Manawatū-Whanganui</option>
+                        <option value="wellington">Wellington - Te Whanganui-a-Tara</option>
+                        <option value="tasman">Tasman - Te Tai o Aorere</option>
+                        <option value="nelson">Nelson - Whakatū</option>
+                        <option value="marlborough">Marlborough - Te Tauihu-o-te-waka</option>
+                        <option value="west_coast">West Coast - Te Tai Poutini</option>
+                        <option value="canterbury">Canterbury - Waitaha</option>
+                        <option value="otago">Otago - Ōtākou</option>
+                        <option value="southland">Southland - Murihiku</option>
+                        <option value="chatham_islands">Chatham Islands - Wharekauri / Rēkohu</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-10">
+            <button type="submit"
+                class="px-6 py-3 text-sm font-bold text-white transition-colors bg-gray-900 rounded-lg shadow-md hover:bg-gray-800 dark:bg-orange-500 dark:text-white dark:hover:bg-orange-600">
+                Join Directory
+            </button>
+        </div>
+    </form>
+</section>
+
+<script>
+    // Limit tags selection to 2
+    document.addEventListener('DOMContentLoaded', function() {
+        const checkboxes = document.querySelectorAll('input[name="tags"]');
+
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const checked = document.querySelectorAll('input[name="tags"]:checked');
+                if (checked.length >= 2) {
+                    checkboxes.forEach(cb => {
+                        if (!cb.checked) {
+                            cb.disabled = true;
+                        }
+                    });
+                } else {
+                    checkboxes.forEach(cb => {
+                        cb.disabled = false;
+                    });
+                }
+            });
+        });
+    });
+</script>
+
+<!-- End: /components/netlify_form.antlers.html -->
