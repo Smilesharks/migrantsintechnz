@@ -11,8 +11,10 @@
                     <div class="flex gap-2">
                         {{ if date >= now }}
                             {{ partial:components/button button_type='button' label="Get Tickets" :url="ticket_url" target_blank="true" }}
+                            {{ partial:components/button button_type='secondary' label="View more" :url="url" target_blank="false" }}
+                        {{ else }}
+                            {{ partial:components/button button_type='button' label="View more" :url="url" target_blank="false" }}
                         {{ /if }}
-                        {{ partial:components/button button_type='secondary' label="View more" :url="url" target_blank="false" }}
                     </div>
                 {{ /collection:events }}
             {{ else }}

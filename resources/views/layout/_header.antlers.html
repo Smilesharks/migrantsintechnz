@@ -50,16 +50,19 @@
                 </svg>
                 {{ location }}
             </a>
-            <a class="relative inline-flex items-center justify-center h-8 px-4 ml-auto overflow-hidden font-medium font-bold tracking-tight transition bg-orange-500 rounded-md text-orange-950 dark:bg-orange-500 dark:text-white group hover:scale-110"
-                href="{{ ticket_url }}" target="_blank" title="Get tickets"><span class="hidden lg:block">Get
-                    tickets</span>
-                <span class="block lg:hidden">Tickets</span>
-                <div
-                    class="flex absolute justify-center [transform:skew(-12deg)_translateX(-100%)] group-hover:[transform:skew(-12deg)_translateX(100%)] group-hover:duration-1000 h-full inset-0 w-full">
-                    <div class="relative w-8 h-full bg-white/20"></div>
-                </div>
-            </a>
-
+            {{ if date > now }}
+                <a class="relative inline-flex items-center justify-center h-8 px-4 ml-auto overflow-hidden font-medium font-bold tracking-tight transition bg-orange-500 rounded-md text-orange-950 dark:bg-orange-500 dark:text-white group hover:scale-110"
+                    href="{{ ticket_url }}" target="_blank" title="Get tickets"><span class="hidden lg:block">Get
+                        tickets</span>
+                    <span class="block lg:hidden">Tickets</span>
+                    <div
+                        class="flex absolute justify-center [transform:skew(-12deg)_translateX(-100%)] group-hover:[transform:skew(-12deg)_translateX(100%)] group-hover:duration-1000 h-full inset-0 w-full">
+                        <div class="relative w-8 h-full bg-white/20"></div>
+                    </div>
+                </a>
+            {{ else }}
+                <div class="div"></div>
+            {{ /if }}
             {{# {{ partial:components/button button_type='button' :type='type' label="Tickets" :url="ticket_url" :inverted="false" target_blank="true" }} #}}
         </div>
     </div>
