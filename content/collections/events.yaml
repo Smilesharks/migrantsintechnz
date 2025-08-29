@@ -1,11 +1,13 @@
 title: Events
-route: '/{mount}/{slug}'
-layout: layout
 template: events/show
-revisions: false
-date: false
-sort_dir: asc
-date_behavior:
-  past: public
-  future: private
+layout: layout
 mount: 06ebabcc-777f-4d4a-bdac-dbf86590bdf7
+revisions: false
+route: '/{mount}/{slug}'
+date: true
+sort_dir: desc
+preview_targets:
+  -
+    label: Entry
+    url: '{permalink}'
+    refresh: true

@@ -4,7 +4,7 @@
 #}}
 
 <!-- /layout/_header.antlers.html -->
-{{ collection:events limit="1" sort="date:asc" }}
+{{ collection:events limit="1" }}
     <div
         class="border-b border-orange-600/20 bg-gradient-to-r dark:border-b dark:border-orange-100/10 dark:from-orange-500/20 dark:to-orange-500/20 from-orange-400/20 to-orange-500/20">
         <div
@@ -21,7 +21,12 @@
                     <path d="M4 17v2" />
                     <path d="M5 18H3" />
                 </svg>
-                {{ if date > now }}Next Event{{ else }}Last Event{{ /if }}</span>
+                {{ if date > now }}
+                    Next Event
+                {{ else }}
+                    Last Event
+                {{ /if }}
+            </span>
             <a class="flex items-center gap-1 font-medium underline dark:text-orange-500 hover:underline max-lg:text-xs"
                 href="{{ url }}">
                 <svg class="size-3" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
