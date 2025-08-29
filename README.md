@@ -1,188 +1,241 @@
-# site.ext
+# Migrants in Tech NZ
 
-## Installation instructions
+A community platform built with Statamic CMS to connect and support migrants working in New Zealand's technology sector.
 
-1. run `composer install`
-2. run `php please make:user`
-3. run `npm i` && `npm run dev`
+## 🎯 About
 
-## Environment file contents
+Migrants in Tech NZ is a platform that brings together migrants working in the tech industry across New Zealand. Our community provides networking opportunities, career support, and a directory of talented professionals looking to make their mark in Aotearoa's thriving tech ecosystem.
+
+### Features
+
+-   **Community Directory**: Browse profiles of migrants in tech across NZ
+-   **Event Management**: Discover and register for networking events and meetups
+-   **Location-based Networking**: Connect with professionals in your region
+-   **Professional Links**: Direct access to portfolios, LinkedIn, and GitHub profiles
+
+## 🏗️ Tech Stack
+
+-   **CMS**: Statamic 5.x (Flat-file CMS)
+-   **Framework**: Laravel 12.x
+-   **Frontend**: Alpine.js + Tailwind CSS 4.x
+-   **Build Tool**: Vite 6.x
+-   **Deployment**: Static Site Generation (SSG) for Netlify
+-   **Forms**: Netlify Forms integration
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+-   PHP 8.2+
+-   Composer
+-   Node.js 18+
+-   NPM
+
+### Installation
+
+1. **Clone and install dependencies**
+
+    ```bash
+    git clone [repository-url]
+    cd migrantsintechnz
+    composer install
+    npm install
+    ```
+
+2. **Create admin user**
+
+    ```bash
+    php please make:user
+    ```
+
+3. **Start development servers**
+
+    ```bash
+    # Option 1: Individual servers
+    php artisan serve
+    npm run dev
+
+    # Option 2: All-in-one (recommended)
+    composer dev
+    ```
+
+4. **Access the site**
+    - Frontend: `http://localhost:8000`
+    - Control Panel: `http://localhost:8000/cp`
+
+## 🛠️ Development Commands
+
+### Frontend Development
+
+-   `npm run dev` - Start Vite development server with hot reload
+-   `npm run build` - Build production assets
+-   `npm run production` - Alias for production build
+
+### Backend Development
+
+-   `php artisan serve` - Start Laravel development server
+-   `php please` - Statamic CLI tool for CMS operations
+-   `composer dev` - Run concurrent development servers (Laravel, queue, logs, npm)
+
+### Content & Cache Management
+
+-   `php artisan statamic:stache:warm` - Warm Statamic cache
+-   `php artisan statamic:static:clear` - Clear static cache
+-   `php artisan statamic:static:warm --queue` - Warm static cache via queue
+-   `php artisan statamic:search:update --all` - Update search indexes
+
+### Testing & Quality
+
+-   `composer test` - Run PHPUnit tests
+-   `php artisan test` - Alternative test command
+
+## 📁 Project Structure
+
+```
+├── content/
+│   ├── collections/
+│   │   ├── events/          # Community events and meetups
+│   │   ├── migrants/        # Community member profiles
+│   │   └── pages/           # Static pages
+│   ├── globals/             # Site-wide settings
+│   └── navigation/          # Navigation structures
+├── resources/
+│   ├── blueprints/          # Content field definitions
+│   ├── fieldsets/           # Reusable field groups
+│   ├── views/
+│   │   ├── components/      # Reusable components
+│   │   ├── page_builder/    # Page builder blocks
+│   │   └── layout/          # Layout templates
+│   ├── css/
+│   └── js/
+└── public/                  # Static assets
+```
+
+## 🎨 Content Management
+
+### Adding Community Members
+
+1. Access Control Panel (`/cp`)
+2. Navigate to **Collections > Migrants**
+3. Create new entry with:
+    - Full name and position
+    - Email and professional links
+    - Skills/expertise tags (max 2)
+    - Location within NZ
+    - Profile image (optional)
+
+### Managing Events
+
+1. Go to **Collections > Events**
+2. Create event with:
+    - Date and time
+    - Location details
+    - Event description
+    - Ticket/registration URLs
+    - Featured image
+
+Events are automatically sorted chronologically and show appropriate "Get Tickets" buttons for future events.
+
+### Page Building
+
+The site uses a flexible page builder system:
+
+-   **Section Title**: Hero sections with descriptions
+-   **Netlify Form**: Community registration form
+-   **Past Events**: Event listing component
+
+## 🌐 Forms & Netlify Integration
+
+The site includes a custom Netlify form for community registrations at `/join`:
+
+-   **Honeypot protection**: Spam prevention
+-   **Field validation**: Required fields and format checking
+-   **Skills limiting**: Maximum 2 expertise selections
+-   **Responsive design**: Works on all devices
+-   **Dark mode support**: Consistent theming
+
+Form submissions are processed by Netlify and can be configured to send email notifications.
+
+## 📱 Responsive Design
+
+-   **Mobile-first approach** with Tailwind CSS
+-   **Dark/light theme switching** with Peak Browser Appearance
+-   **Accessible components** following web standards
+-   **Performance optimized** with static generation
+
+## 🚢 Deployment
+
+### Netlify (Recommended)
+
+1. **Generate static site**
+
+    ```bash
+    php please ssg:generate
+    ```
+
+2. **Deploy generated files** from `storage/app/static/`
+
+### Traditional Hosting (Ploi)
+
+```bash
+cd {SITE_DIRECTORY}
+git pull origin {BRANCH}
+composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev
+npm ci && npm run build
+php artisan cache:clear
+php artisan config:cache
+php artisan statamic:stache:warm
+php artisan statamic:static:warm --queue
+```
+
+### Forge Deployment
+
+Similar to Ploi but with Forge-specific variables and FPM reload handling.
+
+## ⚙️ Environment Configuration
 
 ### Development
 
 ```env
-Dump your .env values here with sensitive data removed.
+APP_NAME="Migrants In Tech"
+APP_ENV=local
+APP_DEBUG=true
+APP_TIMEZONE="Pacific/Auckland"
 ```
 
 ### Production
 
 ```env
-Dump your .env values here with sensitive data removed. The following is a production example that uses full static caching:
 APP_NAME="Migrants In Tech"
 APP_ENV=production
-APP_KEY="base64:NMSgnOdtY/RqcfTlDexu5CXV0r+dBwZw0hmzLW1YUf4="
 APP_DEBUG=false
-APP_TIMEZONE="Pacific/Auckland"
-APP_URL=
-
-APP_LOCALE=en
-APP_FALLBACK_LOCALE=en
-APP_FAKER_LOCALE=en_US
-
-APP_MAINTENANCE_DRIVER=file
-APP_MAINTENANCE_STORE=file
-
-BCRYPT_ROUNDS=12
-
-LOG_CHANNEL=stack
-LOG_STACK=single
-LOG_DEPRECATIONS_CHANNEL=null
-LOG_LEVEL=debug
-
-DB_CONNECTION=sqlite
-# DB_HOST=127.0.0.1
-# DB_PORT=3306
-# DB_DATABASE=laravel
-# DB_USERNAME=root
-# DB_PASSWORD=
-
-SESSION_DRIVER=file
-SESSION_LIFETIME=120
-SESSION_ENCRYPT=false
-SESSION_PATH=/
-SESSION_DOMAIN=null
-
-BROADCAST_CONNECTION=log
-FILESYSTEM_DISK=local
-QUEUE_CONNECTION=redis
-
-CACHE_STORE=file
-CACHE_PREFIX=
-
-MEMCACHED_HOST=127.0.0.1
-
-REDIS_CLIENT=phpredis
-REDIS_DATABASE=
-REDIS_HOST=127.0.0.1
-REDIS_PASSWORD=null
-REDIS_PORT=6379
-
-MAIL_MAILER=smtp
-MAIL_HOST=smtp.postmarkapp.com
-MAIL_PORT=587
-MAIL_ENCRYPTION=tls
-MAIL_USERNAME=
-MAIL_PASSWORD=
-MAIL_FROM_ADDRESS=
-MAIL_FROM_NAME="${APP_NAME}"
-
-AWS_ACCESS_KEY_ID=
-AWS_SECRET_ACCESS_KEY=
-AWS_DEFAULT_REGION=us-east-1
-AWS_BUCKET=
-AWS_USE_PATH_STYLE_ENDPOINT=false
-
-VITE_APP_NAME="${APP_NAME}"
-
-STATAMIC_LICENSE_KEY=
-STATAMIC_THEME=business
-STATAMIC_PRO_ENABLED=true
-STATAMIC_STACHE_WATCHER=auto
 STATAMIC_STATIC_CACHING_STRATEGY=full
 STATAMIC_CACHE_TAGS_ENABLED=true
-STATAMIC_REVISIONS_ENABLED=false
-STATAMIC_GRAPHQL_ENABLED=false
-STATAMIC_API_ENABLED=false
 STATAMIC_GIT_ENABLED=true
-STATAMIC_GIT_PUSH=true
-STATAMIC_GIT_DISPATCH_DELAY=5
-
-IMAGE_MANIPULATION_DRIVER=imagick
-
-#STATAMIC_CUSTOM_CMS_NAME=
-#STATAMIC_CUSTOM_LOGO_NAV_URL=
-#STATAMIC_CUSTOM_DARK_LOGO_URL=
-STATAMIC_CUSTOM_LOGO_OUTSIDE_URL="/visuals/client-logo.svg"
-#STATAMIC_CUSTOM_FAVICON_URL=
-#STATAMIC_CUSTOM_CSS_URL=
 ```
 
-## NGINX config
+## 🤝 Contributing
 
-Add the following to your NGINX config __inside the server block__ enable static resource caching:
-```
-expires $expires;
-```
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
 
-And this __outside the server block__:
-```
-map $sent_http_content_type $expires {
-    default    off;
-    text/css    max;
-    ~image/    max;
-    application/javascript    max;
-    application/octet-stream    max;
-}
-```
+### Content Guidelines
 
-## Deploy script Ploi
+-   Profile images should be professional headshots
+-   Event descriptions should be engaging and informative
+-   All content should be inclusive and welcoming
 
-```bash
-if [[ {COMMIT_MESSAGE} =~ "[BOT]" ]] && [[ {DEPLOYMENT_SOURCE} == "quick-deploy" ]]; then
-    echo "Automatically committed on production. Nothing to deploy."
-    {DO_NOT_NOTIFY}
-    exit 0
-fi
+## 📞 Support
 
-cd {SITE_DIRECTORY}
-git pull origin {BRANCH}
-{SITE_COMPOSER} install --no-interaction --prefer-dist --optimize-autoloader --no-dev
+For technical issues or community questions:
 
-npm ci
-npm run build
+-   Create an issue in the repository
+-   Contact the community administrators
+-   Check Statamic documentation for CMS-related questions
 
-{RELOAD_PHP_FPM}
+---
 
-{SITE_PHP} artisan cache:clear
-{SITE_PHP} artisan config:cache
-{SITE_PHP} artisan route:cache
-{SITE_PHP} artisan statamic:stache:warm
-{SITE_PHP} artisan queue:restart
-{SITE_PHP} artisan statamic:search:update --all
-{SITE_PHP} artisan statamic:static:clear
-{SITE_PHP} artisan statamic:static:warm --queue
-
-echo "🚀 Application deployed!"
-```
-
-## Deploy script Forge
-
-```bash
-if [[ $FORGE_QUICK_DEPLOY == 1 ]]; then
-    if [[ $FORGE_DEPLOY_MESSAGE =~ "[BOT]" ]]; then
-        echo "Automatically committed on production. Nothing to deploy."
-        exit 0
-    fi
-fi
-
-cd $FORGE_SITE_PATH
-git pull origin $FORGE_SITE_BRANCH
-$FORGE_COMPOSER install --no-interaction --prefer-dist --optimize-autoloader --no-dev
-
-npm ci
-npm run build
-
-# Prevents multiple deployments from restarting PHP-FPM simultaneously
-touch /tmp/fpmlock 2>/dev/null || true
-( flock -w 10 9 || exit 1
-    echo 'Restarting FPM...'; sudo -S service $FORGE_PHP_FPM reload ) 9</tmp/fpmlock
-
-$FORGE_PHP artisan cache:clear
-$FORGE_PHP artisan config:cache
-$FORGE_PHP artisan route:cache
-$FORGE_PHP artisan statamic:stache:warm
-$FORGE_PHP artisan queue:restart
-$FORGE_PHP artisan statamic:search:update --all
-$FORGE_PHP artisan statamic:static:clear
-$FORGE_PHP artisan statamic:static:warm --queue
-```
+**Built with ❤️ for the migrant tech community in Aotearoa New Zealand**

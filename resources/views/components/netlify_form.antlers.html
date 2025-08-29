@@ -1,0 +1,202 @@
+{{#
+    @name Netlify Form
+    @desc A Netlify form component based on migrants form fields
+#}}
+
+<!-- /components/netlify_form.antlers.html -->
+<section class="flex-col max-w-4xl gap-24 pt-12 mx-auto lg:flex lg:px-8">
+    {{ partial:components/section_title title="Join the Directory" url="true" description="Add your profile to the Migrants in Tech Directory and help build a more connected community. Share your name, professional title, and links so others can discover your work, reach out, and be inspired by your journey." }}
+</section>
+
+<section id="migrantform" class="max-w-4xl px-4 mx-auto md:px-6">
+    <form name="migrants-registration" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="netlify-form space-y-8">
+        <!-- Honeypot field for spam protection -->
+        <div class="hidden">
+            <label>
+                Don't fill this out if you're human: <input name="bot-field" />
+            </label>
+        </div>
+
+        <!-- Personal Information -->
+        <fieldset class="space-y-6">
+            <legend class="text-lg font-bold dark:text-neutral-100 text-neutral-900 mb-4">Personal Information</legend>
+            <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+                <!-- Name -->
+                <div class="form-group">
+                    <label for="title" class="block mb-2 font-bold dark:text-neutral-100 text-neutral-900">
+                        Full Name <sup class="text-red-700">*</sup>
+                    </label>
+                    <input type="text" id="title" name="title" required
+                        class="form-input w-full px-4 py-3 border border-neutral-300 dark:border-neutral-600 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+                </div>
+
+                <!-- Position -->
+                <div class="form-group">
+                    <label for="position" class="block mb-2 font-bold dark:text-neutral-100 text-neutral-900">
+                        Job Title / Position <sup class="text-red-700">*</sup>
+                    </label>
+                    <input type="text" id="position" name="position" required
+                        class="form-input w-full px-4 py-3 border border-neutral-300 dark:border-neutral-600 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email" class="block mb-2 font-bold dark:text-neutral-100 text-neutral-900">
+                        Email Address <sup class="text-red-700">*</sup>
+                    </label>
+                    <input type="email" id="email" name="email" required
+                        class="form-input w-full px-4 py-3 border border-neutral-300 dark:border-neutral-600 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+                </div>
+
+                <!-- Link -->
+                <div class="form-group">
+                    <label for="link" class="block mb-2 font-bold dark:text-neutral-100 text-neutral-900">
+                        Website/Portfolio/LinkedIn
+                    </label>
+                    <input type="url" id="link" name="link" placeholder="https://"
+                        class="form-input w-full px-4 py-3 border border-neutral-300 dark:border-neutral-600 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+                    <p class="mt-1 text-sm text-neutral-600 dark:text-neutral-400">Share your professional link</p>
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- Professional Information -->
+        <fieldset class="space-y-6">
+            <legend class="text-lg font-bold dark:text-neutral-100 text-neutral-900 mb-4">Professional Information</legend>
+            
+            <!-- Tags -->
+            <div class="form-group">
+                <label class="block mb-2 font-bold dark:text-neutral-100 text-neutral-900">
+                    Skills & Expertise <sup class="text-red-700">*</sup>
+                </label>
+                <p class="mb-3 text-sm text-neutral-600 dark:text-neutral-400">Select up to 2 options that best describe your expertise</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <label class="flex items-center p-3 border border-neutral-300 dark:border-neutral-600 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors cursor-pointer">
+                        <input type="checkbox" name="tags" value="developer" class="mr-3 w-4 h-4 text-orange-500 border-neutral-300 dark:border-neutral-600 rounded focus:ring-orange-500 dark:bg-neutral-800">
+                        <span class="text-neutral-900 dark:text-neutral-100">Developer</span>
+                    </label>
+                    <label class="flex items-center p-3 border border-neutral-300 dark:border-neutral-600 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors cursor-pointer">
+                        <input type="checkbox" name="tags" value="frontend" class="mr-3 w-4 h-4 text-orange-500 border-neutral-300 dark:border-neutral-600 rounded focus:ring-orange-500 dark:bg-neutral-800">
+                        <span class="text-neutral-900 dark:text-neutral-100">Front-end</span>
+                    </label>
+                    <label class="flex items-center p-3 border border-neutral-300 dark:border-neutral-600 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors cursor-pointer">
+                        <input type="checkbox" name="tags" value="software_engineering" class="mr-3 w-4 h-4 text-orange-500 border-neutral-300 dark:border-neutral-600 rounded focus:ring-orange-500 dark:bg-neutral-800">
+                        <span class="text-neutral-900 dark:text-neutral-100">Software Engineering</span>
+                    </label>
+                    <label class="flex items-center p-3 border border-neutral-300 dark:border-neutral-600 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors cursor-pointer">
+                        <input type="checkbox" name="tags" value="designer" class="mr-3 w-4 h-4 text-orange-500 border-neutral-300 dark:border-neutral-600 rounded focus:ring-orange-500 dark:bg-neutral-800">
+                        <span class="text-neutral-900 dark:text-neutral-100">Designer</span>
+                    </label>
+                    <label class="flex items-center p-3 border border-neutral-300 dark:border-neutral-600 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors cursor-pointer">
+                        <input type="checkbox" name="tags" value="ui_ux_design" class="mr-3 w-4 h-4 text-orange-500 border-neutral-300 dark:border-neutral-600 rounded focus:ring-orange-500 dark:bg-neutral-800">
+                        <span class="text-neutral-900 dark:text-neutral-100">UI/UX Design</span>
+                    </label>
+                    <label class="flex items-center p-3 border border-neutral-300 dark:border-neutral-600 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors cursor-pointer">
+                        <input type="checkbox" name="tags" value="mobile_development" class="mr-3 w-4 h-4 text-orange-500 border-neutral-300 dark:border-neutral-600 rounded focus:ring-orange-500 dark:bg-neutral-800">
+                        <span class="text-neutral-900 dark:text-neutral-100">Mobile Development</span>
+                    </label>
+                    <label class="flex items-center p-3 border border-neutral-300 dark:border-neutral-600 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors cursor-pointer">
+                        <input type="checkbox" name="tags" value="machine_learning" class="mr-3 w-4 h-4 text-orange-500 border-neutral-300 dark:border-neutral-600 rounded focus:ring-orange-500 dark:bg-neutral-800">
+                        <span class="text-neutral-900 dark:text-neutral-100">Machine Learning</span>
+                    </label>
+                    <label class="flex items-center p-3 border border-neutral-300 dark:border-neutral-600 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors cursor-pointer">
+                        <input type="checkbox" name="tags" value="full_stack" class="mr-3 w-4 h-4 text-orange-500 border-neutral-300 dark:border-neutral-600 rounded focus:ring-orange-500 dark:bg-neutral-800">
+                        <span class="text-neutral-900 dark:text-neutral-100">Full Stack</span>
+                    </label>
+                    <label class="flex items-center p-3 border border-neutral-300 dark:border-neutral-600 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors cursor-pointer">
+                        <input type="checkbox" name="tags" value="backend" class="mr-3 w-4 h-4 text-orange-500 border-neutral-300 dark:border-neutral-600 rounded focus:ring-orange-500 dark:bg-neutral-800">
+                        <span class="text-neutral-900 dark:text-neutral-100">Back-end</span>
+                    </label>
+                    <label class="flex items-center p-3 border border-neutral-300 dark:border-neutral-600 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors cursor-pointer">
+                        <input type="checkbox" name="tags" value="project_management" class="mr-3 w-4 h-4 text-orange-500 border-neutral-300 dark:border-neutral-600 rounded focus:ring-orange-500 dark:bg-neutral-800">
+                        <span class="text-neutral-900 dark:text-neutral-100">Project Management</span>
+                    </label>
+                    <label class="flex items-center p-3 border border-neutral-300 dark:border-neutral-600 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors cursor-pointer">
+                        <input type="checkbox" name="tags" value="database_management" class="mr-3 w-4 h-4 text-orange-500 border-neutral-300 dark:border-neutral-600 rounded focus:ring-orange-500 dark:bg-neutral-800">
+                        <span class="text-neutral-900 dark:text-neutral-100">Database Management</span>
+                    </label>
+                    <label class="flex items-center p-3 border border-neutral-300 dark:border-neutral-600 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors cursor-pointer">
+                        <input type="checkbox" name="tags" value="tech_ambassador" class="mr-3 w-4 h-4 text-orange-500 border-neutral-300 dark:border-neutral-600 rounded focus:ring-orange-500 dark:bg-neutral-800">
+                        <span class="text-neutral-900 dark:text-neutral-100">Tech Ambassador</span>
+                    </label>
+                    <label class="flex items-center p-3 border border-neutral-300 dark:border-neutral-600 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors cursor-pointer">
+                        <input type="checkbox" name="tags" value="cto" class="mr-3 w-4 h-4 text-orange-500 border-neutral-300 dark:border-neutral-600 rounded focus:ring-orange-500 dark:bg-neutral-800">
+                        <span class="text-neutral-900 dark:text-neutral-100">CTO</span>
+                    </label>
+                    <label class="flex items-center p-3 border border-neutral-300 dark:border-neutral-600 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors cursor-pointer">
+                        <input type="checkbox" name="tags" value="other" class="mr-3 w-4 h-4 text-orange-500 border-neutral-300 dark:border-neutral-600 rounded focus:ring-orange-500 dark:bg-neutral-800">
+                        <span class="text-neutral-900 dark:text-neutral-100">Other</span>
+                    </label>
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- Location -->
+        <fieldset class="space-y-6">
+            <legend class="text-lg font-bold dark:text-neutral-100 text-neutral-900 mb-4">Location</legend>
+            <div class="form-group">
+                <label for="location" class="block mb-2 font-bold dark:text-neutral-100 text-neutral-900">
+                    Where are you based? <sup class="text-red-700">*</sup>
+                </label>
+                <select id="location" name="location" required
+                        class="form-input w-full px-4 py-3 border border-neutral-300 dark:border-neutral-600 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+                    <option value="">Select your location</option>
+                    <option value="auckland">Auckland - Tāmaki Makaurau</option>
+                    <option value="wellington">Wellington - Te Whanganui-a-Tara</option>
+                    <option value="canterbury">Canterbury - Waitaha</option>
+                    <option value="otago">Otago - Ōtākou</option>
+                    <option value="waikato">Waikato - Waikato</option>
+                    <option value="bay_of_plenty">Bay of Plenty - Te Moana-a-Toi</option>
+                    <option value="manawatu_whanganui">Manawatū-Whanganui - Manawatū-Whanganui</option>
+                    <option value="northland">Northland - Te Tai Tokerau</option>
+                    <option value="hawkes_bay">Hawke's Bay - Te Matau-a-Māui</option>
+                    <option value="taranaki">Taranaki - Taranaki</option>
+                    <option value="southland">Southland - Murihiku</option>
+                    <option value="gisborne">Gisborne - Te Tairāwhiti</option>
+                    <option value="west_coast">West Coast - Te Tai Poutini</option>
+                    <option value="nelson">Nelson - Whakatū</option>
+                    <option value="tasman">Tasman - Te Tai o Aorere</option>
+                    <option value="marlborough">Marlborough - Te Tauihu-o-te-waka</option>
+                    <option value="chatham_islands">Chatham Islands - Wharekauri / Rēkohu</option>
+                </select>
+            </div>
+        </fieldset>
+
+        <div class="flex justify-end pt-6">
+            <button type="submit"
+                    class="inline-flex items-center px-8 py-3 font-bold text-white transition-colors bg-neutral-900 rounded-lg shadow-md hover:bg-neutral-800 dark:bg-orange-500 dark:text-white dark:hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2">
+                Join Directory
+            </button>
+        </div>
+    </form>
+</section>
+
+<script>
+// Limit tags selection to 2 and provide visual feedback
+document.addEventListener('DOMContentLoaded', function() {
+    const checkboxes = document.querySelectorAll('input[name="tags"]');
+    const maxSelections = 2;
+    
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            const checked = document.querySelectorAll('input[name="tags"]:checked');
+            
+            if (checked.length >= maxSelections) {
+                checkboxes.forEach(cb => {
+                    if (!cb.checked) {
+                        cb.disabled = true;
+                        cb.closest('label').classList.add('opacity-50', 'cursor-not-allowed');
+                    }
+                });
+            } else {
+                checkboxes.forEach(cb => {
+                    cb.disabled = false;
+                    cb.closest('label').classList.remove('opacity-50', 'cursor-not-allowed');
+                });
+            }
+        });
+    });
+});
+</script>
+
+<!-- End: /components/netlify_form.antlers.html -->
