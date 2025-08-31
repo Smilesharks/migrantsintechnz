@@ -31,20 +31,22 @@ tabs:
             field:
               type: link
               display: Url
-              width: 25
           -
             handle: ticket_url
             field:
               type: link
               display: 'Ticket Url'
-              width: 25
               default: 'https://events.humanitix.com/migrants-in-tech-auckland-meet/tickets'
           -
             handle: date
             field:
               type: date
+              required: true
+              default: now
               display: Date
               width: 50
+              validate:
+                - required
           -
             handle: type
             field:
